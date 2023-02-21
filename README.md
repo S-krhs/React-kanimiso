@@ -1,2 +1,1 @@
-## React-kanimiso
-###now: local test
+localhostでテスト中
