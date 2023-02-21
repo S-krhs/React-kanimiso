@@ -1,0 +1,122 @@
+:root{
+  --SidebarBackgroundImage :url(./assets/check-background.jpg);
+}
+
+.App {
+  margin: 0px auto;
+  padding: 0px;
+  
+  display: grid;
+  grid-template-areas: 
+  "header header"
+  "left main";
+  grid-template-columns: 220px auto;
+  grid-template-rows: 36px auto;
+}
+
+.HeaderPos{
+  grid-area: header;
+}
+
+.SidebarPos {
+  grid-area: left;
+}
+
+.MainPos {
+  grid-area: main;
+  background-color:rgb(255, 255, 255);
+}
+
+.MainContents {
+  width: max-width;
+}
+
+.Header {
+  width: max-width;
+  background: #000;
+}
+
+.Sidebar {
+  height: calc(100vh - 36px);
+  width: 220px;
+  background-color:rgb(188, 218, 179);
+  overflow: scroll;
+  overflow-x: hidden;
+  background-image: var(--SidebarBackgroundImage);
+}
+
+.SidebarProfile{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.MyName{
+  font-size: large;
+}
+
+.MyIcon{
+  margin: auto;
+  width:180px;
+  height:180px;
+  background-color: #00f;
+  margin-bottom: 30px;
+}
+
+.MyIconImg{
+  width:180px;
+  height:auto;
+}
+
+.SidebarLink{
+  height: 100%;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.SidebarLink .headline{
+  font-family: Monotype Corsiva;
+  font-style: italic;
+  font-size: x-large;
+  font-weight: 600;
+  list-style: none;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.SidebarLink .row{
+  list-style: none;
+  text-align: left;
+  text-decoration: underline;
+  margin-left: 25px;
+  margin-top: 5px;
+}
+
+
+.Margin-test{
+  margin-top: 1000px;
+}
+
+.gaming {
+  animation: gaming 2s linear infinite;
+}
+
+@keyframes gaming {
+  0% {color: red}
+  8% {color: #ff7f00}
+  16% {color: #ff0}
+  25% {color: #7fff00}
+  33% {color: #0f0}
+  41% {color: #00ff7f}
+  50% {color: #0ff}
+  58% {color: #007fff}
+  66% {color: #00f}
+  75% {color: #7f00ff}
+  83% {color: #f0f}
+  91% {color: #ff007f}
+}
+
+.TitleSpace {
+  margin-left: 0px;
+  margin-right: 50px;
+}
