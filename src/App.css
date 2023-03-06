@@ -4,31 +4,40 @@
 
 .App {
   margin: 0px auto;
-  padding: 0px;
-  
+  padding: 0;
+
+  max-width: 1350px;
+  min-width: 320px;
+  height: 100vh;
+
   display: grid;
   grid-template-areas: 
   "header header"
-  "left main";
+  "leftbar main";
   grid-template-columns: 220px auto;
   grid-template-rows: 36px auto;
 }
 
 .HeaderPos{
+  width: 100%;
   grid-area: header;
 }
 
 .SidebarPos {
-  grid-area: left;
+  grid-area: leftbar;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .MainPos {
   grid-area: main;
   background-color:rgb(255, 255, 255);
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .MainContents {
-  width: max-width;
+  background-color:rgb(255, 255, 255);
 }
 
 .Header {
@@ -37,17 +46,13 @@
 }
 
 .Sidebar {
-  height: calc(100vh - 36px);
-  width: 220px;
   background-color:rgb(188, 218, 179);
-  overflow: scroll;
-  overflow-x: hidden;
   background-image: var(--SidebarBackgroundImage);
 }
 
 .SidebarProfile{
   text-align: center;
-  margin-top: 30px;
+  padding-top: 30px;
 }
 
 .MyName{

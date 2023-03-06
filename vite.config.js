@@ -8,7 +8,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/pics': {
-        target: 'http://localhost:8080'
+        target: 'http://54.64.225.186/'
       }
     }
   }

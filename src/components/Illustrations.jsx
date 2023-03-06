@@ -1,20 +1,25 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+
 
 const Illustrations = () => {
-  const [imgPath, setImgPath] = useState('default');
+  const [illustsData,setIllustsData]=useState([]);
 
-  fetch("/pics")
-  .then(res=>res.json())
-  .then(json=>{
-    setImgPath(json[0].path);
-  })
-  .catch(error => {
-    console.error('通信に失敗しました', error);
-  })
+  useEffect(()=>{
+    fetch("/pics")
+    .then(res=>res.json())
+    .then(json=>{setIllustsData(json)})
+    .catch(error => {console.error('通信に失敗しました', error);})
+  },[])
 
   return (
-    <div>
-      <img src={imgPath}/>
+    <div className='MainContents'>
+      <div>Illustrations</div>
+      {illustsData.map((data,index)=>(
+        <div key={index}>
+          <p>{data.path}</p>
+          <img src={data.path}/>
+        </div>
+    ))}
     </div>
   )
 }

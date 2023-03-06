@@ -18,8 +18,7 @@ rules:
   react/react-in-jsx-scope: 0
   react/function-component-definition:
     - 2
-    - namedComponents:
-      - arrow-body-style : always
-
+    - paramaters: always
+    - return: always
 
   

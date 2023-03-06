@@ -12,10 +12,5 @@
 }
 
 body {
-  margin: auto;
-  padding: 0;
-  max-width: 1350px;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #c2c2c2;
+  background-color: #000000;
 }
