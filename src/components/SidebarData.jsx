@@ -6,7 +6,7 @@ export const SidebarMainLink=[
     },
     {
         title: "イラスト",
-        link: "illusts"
+        link: "works"
     },
     {
         title: "日記",

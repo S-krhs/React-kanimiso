@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee"
 
 const Header = () => {
   return(
-    <header className='Header'>
+    <>
       <Marquee speed="60" pauseOnHover="true" gradient="">
           <div className="gaming">
               <strong>
@@ -11,7 +11,7 @@ const Header = () => {
               </strong>
           </div>
       </Marquee>
-    </header>    
+    </>    
   )
 }
 

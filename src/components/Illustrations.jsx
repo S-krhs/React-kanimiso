@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import defaultImgPath from "../assets/transparent.png"
 
 
 const Illustrations = () => {
-  const [illustsData,setIllustsData]=useState([]);
-  const [illustsPath,setIllustsPath]=useState('default');
+  const [illustsData,setIllustsData] = useState([]);
+  const [illustsPath,setIllustsPath] = useState(defaultImgPath);
+  const [illustImgClass,setIllustsImgClass] = useState('IllustImg')
 
   useEffect(()=>{
     fetch("/pics")
@@ -15,9 +17,18 @@ const Illustrations = () => {
     .catch(error => {console.error('Expressサーバーとの通信に失敗しました。', error);})
   },[])
 
+  const AspectCalc=(e)=>{
+    const aspect = e.target.width/e.target.height;
+    if(aspect>1){
+      setIllustsImgClass("IllustImg");
+    }else{
+      setIllustsImgClass("IllustImgPort");
+    }
+  }
+
   
   return (
-    <div className='MainContents'>
+    <>
       <h1 className='MainTitlePos'>Works</h1>
       <div className='IllustButtonsPos'>
         {illustsData.map((data,index)=>(
@@ -25,9 +36,9 @@ const Illustrations = () => {
         ))}
       </div>
       <div className='IllustPos'>
-        <img className='IllustImg' src={illustsPath}/>
+        <img onLoad={AspectCalc} src={illustsPath} className={illustImgClass}/>
       </div>
-    </div>
+    </>
   )
 }
 

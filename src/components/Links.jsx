@@ -3,7 +3,7 @@ import { LinksData } from './LinksData'
 
 const Links = () => {
   return (
-    <div className='MainContents'>
+    <>
       <h1 className='MainTitlePos'>Links</h1>
       <ul className='LinksPos'>
         {
@@ -17,7 +17,7 @@ const Links = () => {
           ))
         }
       </ul>
-    </div>
+    </>
   )
 }
 

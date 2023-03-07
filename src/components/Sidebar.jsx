@@ -5,7 +5,7 @@ import Icon from "../assets/sidebar-profile-icon.png"
 
 const Sidebar = () => {
   return (
-    <div className='Sidebar'>
+    <>
         <div className='SidebarProfile'>
             <div className='MyName'>
                 <ruby>倶楽橋<rt>くらはし</rt></ruby>&nbsp;/&nbsp;しぇんこ
@@ -27,7 +27,7 @@ const Sidebar = () => {
             </ul>
             <div className='Margin-test'>hoge</div>
         </nav>
-    </div>
+    </>
   )
 }
 

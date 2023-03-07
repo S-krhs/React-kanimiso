@@ -1,6 +1,8 @@
 :root{
   --SidebarBackgroundImage :url(./assets/check-background.jpg);
+  --MainBackgroundImage :url(./assets/dot-background.png);
 }
+
 
 .App {
   margin: 0px auto;
@@ -18,21 +20,14 @@
   grid-template-rows: 36px auto;
 }
 
-.HeaderPos{
-  width: 100%;
-  grid-area: header;
-}
-
-.MainPos {
-  grid-area: main;
-  background-color:rgb(255, 255, 255);
-  overflow: scroll;
-  overflow-x: hidden;
-}
 
 /* メイン関連 */
-.MainContents {
+.Main{
+  grid-area: main;
   background-color:rgb(255, 255, 255);
+  background-image: var(--MainBackgroundImage);
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .MainTitlePos{
@@ -42,7 +37,7 @@
 }
 
 .IllustButtonsPos{
-  width:85%;
+  width:80%;
   margin: auto;
   margin-bottom: 30px;
 }
@@ -69,14 +64,20 @@
 }
 
 .IllustPos{
-  width:80%;
-  height: 60vh;
+  width: 88%;
   margin: auto;
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .IllustImg {
-  width:100%;
-  height:auto;
+  width: 100%;
+  height: auto;
+}
+
+.IllustImgPort {
+  width: 70%;
+  height: auto;
 }
 
 .LinksPos{
@@ -100,7 +101,8 @@
 
 /* ヘッダー関連 */
 .Header {
-  width: max-width;
+  width: 100%;
+  grid-area: header;
   background: #000;
 }
 
@@ -130,15 +132,11 @@
 
 
 /* サイドバー関連 */
-.SidebarPos {
+.Sidebar {
   grid-area: leftbar;
   overflow: scroll;
   overflow-x: hidden;
-}
-
-.Sidebar {
-  background-color:rgb(188, 218, 179);
-  background-image: var(--SidebarBackgroundImage);
+  background-image: var(--SidebarBackgroundImage);  
 }
 
 .SidebarProfile{
