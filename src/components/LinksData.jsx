@@ -1,0 +1,26 @@
+export const LinksData=[
+    {
+        "SiteName":"日本萌学会ジャーナルブログ「萌え人」",
+        "User":"日本萌学会（団体）",
+        "URL":"https://japan-moemoe-kyung-kyung.amebaownd.com/",
+        "Description":"謎の団体「日本萌学会」による共同編集ブログ。早く滅ぼしましょう。"
+    },
+    {
+        "SiteName":"デカメシドットコム",
+        "User":"バイブ",
+        "URL":"https://dekameshi.com/",
+        "Description":"当サイトを作るきっかけになったサイト。今、2023年ですよ。"
+    },
+    {
+        "SiteName":"わくわくインターネット",
+        "User":"はやかわ",
+        "URL":"https://kewiihai.com/",
+        "Description":"わるいオタクのいいインターネットがある。"
+    },
+    {
+        "SiteName":"学会追放",
+        "User":"日本萌学会（個人）",
+        "URL":"https://moekyung.com/",
+        "Description":"日本萌学会（団体）に所属する日本萌学会（個人）のブログ。もう更新飽きてそう。"
+    }
+]

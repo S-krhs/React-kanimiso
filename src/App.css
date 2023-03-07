@@ -23,12 +23,6 @@
   grid-area: header;
 }
 
-.SidebarPos {
-  grid-area: leftbar;
-  overflow: scroll;
-  overflow-x: hidden;
-}
-
 .MainPos {
   grid-area: main;
   background-color:rgb(255, 255, 255);
@@ -36,13 +30,110 @@
   overflow-x: hidden;
 }
 
+/* メイン関連 */
 .MainContents {
   background-color:rgb(255, 255, 255);
 }
 
+.MainTitlePos{
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+
+.IllustButtonsPos{
+  width:85%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.likeA {
+  color: #0000EE;
+  border-bottom: 1px solid;
+  font-size: xx-large;
+  margin: 4px;
+ }
+ 
+.likeA:visited {
+  color: #551A8B;
+  border-bottom: 1px solid;
+ }
+ 
+.likeA:active {
+  color: #FF0000;
+  border-bottom: 1px solid;
+}
+
+.likeA:hover{
+  cursor: pointer;
+}
+
+.IllustPos{
+  width:80%;
+  height: 60vh;
+  margin: auto;
+}
+
+.IllustImg {
+  width:100%;
+  height:auto;
+}
+
+.LinksPos{
+  margin: 50px;
+  margin-top: 70px;
+}
+
+.Link{
+  margin-bottom: 10px;
+}
+
+.LinkName{
+  list-style: inside;
+}
+
+.LinkDescription{
+  list-style: none;
+  margin-left:40px;
+}
+
+
+/* ヘッダー関連 */
 .Header {
   width: max-width;
   background: #000;
+}
+
+.gaming {
+  animation: gaming 2s linear infinite;
+}
+
+@keyframes gaming {
+  0% {color: red}
+  8% {color: #ff7f00}
+  16% {color: #ff0}
+  25% {color: #7fff00}
+  33% {color: #0f0}
+  41% {color: #00ff7f}
+  50% {color: #0ff}
+  58% {color: #007fff}
+  66% {color: #00f}
+  75% {color: #7f00ff}
+  83% {color: #f0f}
+  91% {color: #ff007f}
+}
+
+.TitleSpace {
+  margin-left: 0px;
+  margin-right: 50px;
+}
+
+
+/* サイドバー関連 */
+.SidebarPos {
+  grid-area: leftbar;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .Sidebar {
@@ -97,31 +188,6 @@
   margin-top: 5px;
 }
 
-
 .Margin-test{
   margin-top: 1000px;
-}
-
-.gaming {
-  animation: gaming 2s linear infinite;
-}
-
-@keyframes gaming {
-  0% {color: red}
-  8% {color: #ff7f00}
-  16% {color: #ff0}
-  25% {color: #7fff00}
-  33% {color: #0f0}
-  41% {color: #00ff7f}
-  50% {color: #0ff}
-  58% {color: #007fff}
-  66% {color: #00f}
-  75% {color: #7f00ff}
-  83% {color: #f0f}
-  91% {color: #ff007f}
-}
-
-.TitleSpace {
-  margin-left: 0px;
-  margin-right: 50px;
 }

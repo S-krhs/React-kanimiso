@@ -2,7 +2,9 @@ import React from 'react'
 
 const Diary = () => {
   return (
-    <div>Diary</div>
+    <div>
+      <h1 className='MainTitlePos'>Diary</h1>
+    </div>
   )
 }
 
