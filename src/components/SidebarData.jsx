@@ -17,6 +17,10 @@ export const SidebarMainLink=[
         link: "links"
     },
     {
+        title: "ゲーム",
+        link: "games"
+    },
+    {
         title: "工事中",
         link: "under-construction"
     },

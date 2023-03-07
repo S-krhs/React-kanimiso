@@ -8,6 +8,7 @@ import Sidebar from './components/Sidebar'
 import Diary from './components/Diary'
 import Illustrations from './components/Illustrations'
 import UnderConstruction from './components/UnderConstruction'
+import Games from './components/Games'
 
 const App = () => {
   
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/links" element={ <div className='Main'><Links /></div> }/>
           <Route path="/under-construction" element={ <div className='Main'> <UnderConstruction /> </div> }/>
           <Route path="/works" element={<div className='Main'><Illustrations /></div>} />
+          <Route path="/games" element={<div className='Main'><Games /></div>} />
         </Routes>
 
       </div> 

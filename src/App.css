@@ -24,8 +24,8 @@
 /* メイン関連 */
 .Main{
   grid-area: main;
-  background-color:rgb(255, 255, 255);
-  background-image: var(--MainBackgroundImage);
+  background-color:rgb(218, 218, 218);
+  /* background-image: var(--MainBackgroundImage); */
   overflow: scroll;
   overflow-x: hidden;
 }
@@ -98,6 +98,9 @@
   margin-left:40px;
 }
 
+.GamePos{
+  text-align: center;
+}
 
 /* ヘッダー関連 */
 .Header {
