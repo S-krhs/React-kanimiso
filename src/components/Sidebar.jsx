@@ -24,6 +24,7 @@ const Sidebar = () => {
                             <Link to={value.link} >{value.title}</Link>
                         </li>
                     ))}
+                <li className='row'>工事中</li>
             </ul>
             <div className='Margin-test'>hoge</div>
         </nav>

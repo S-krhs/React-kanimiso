@@ -19,11 +19,7 @@ export const SidebarMainLink=[
     {
         title: "ゲーム",
         link: "games"
-    },
-    {
-        title: "工事中",
-        link: "under-construction"
-    },
+    }
 ];
 
 export const SidebarIllustrationsLink=[

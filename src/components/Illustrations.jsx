@@ -8,7 +8,7 @@ const Illustrations = () => {
   const [illustImgClass,setIllustsImgClass] = useState('IllustImg')
 
   useEffect(()=>{
-    fetch("/pics")
+    fetch("./pics")
     .then(res=>res.json())
     .then(json=>{
       setIllustsData(json);

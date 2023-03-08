@@ -100,6 +100,8 @@
 
 .GamePos{
   text-align: center;
+  height: 600px;
+  background: #000;
 }
 
 /* ヘッダー関連 */
