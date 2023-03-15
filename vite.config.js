@@ -6,10 +6,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    proxy: {
-      '/pics': {
-        target: 'http://54.64.225.186/'
-      }
-    }
+    // proxy: {
+    //   '/pics': {
+    //     target: 'https://d2n0vbpdmqpidn.cloudfront.net/',
+    //   }
+    // }
   }
 });

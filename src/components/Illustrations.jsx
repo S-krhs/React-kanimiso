@@ -8,7 +8,7 @@ const Illustrations = () => {
   const [illustImgClass,setIllustsImgClass] = useState('IllustImg')
 
   useEffect(()=>{
-    fetch("./pics")
+    fetch("https://d2n0vbpdmqpidn.cloudfront.net/pics")
     .then(res=>res.json())
     .then(json=>{
       setIllustsData(json);
@@ -32,7 +32,7 @@ const Illustrations = () => {
       <h1 className='MainTitlePos'>Works</h1>
       <div className='IllustButtonsPos'>
         {illustsData.map((data,index)=>(
-            <span key={index} className='likeA' onClick={()=>setIllustsPath(data.path)}>■</span>
+          <span key={index} className='likeA' onClick={()=>setIllustsPath(data.path)}>■</span>
         ))}
       </div>
       <div className='IllustPos'>
