@@ -9,38 +9,38 @@ https://kanimisoknuckle.com
 友人がレンタルサーバー上にHTMLサイトを作っていてそれに触発された。初めてのweb開発なのでせっかくなら流行りの技術を作ってみようということでReactを採用。経緯がそれなので基本的なコンセプトとして動的な要素をあまり前面には押し出さないが、内部では積極的に使用する。
 
 ## 使用技術
-フロント部分はレンタルサーバーのファイルマネージャー上にビルドしたReactアプリを直接アップロードし、バック部分はAWS EC2上にAPサーバーを立ち上げる形で構成しています。どうしてこの構成になったのかなど詳しい経緯は->[こちら](#そもそもなんでお名前com)。
+フロント部分はレンタルサーバーのファイルマネージャー上にビルドしたReactアプリを直接アップロードし、バック部分はAWS EC2上にAPサーバーを立ち上げる形で構成しています。どうしてこの構成になったのかなど詳しい経緯は[こちら](#そもそもなんでお名前com)。
 
 ### フロントエンド
-    React.js
-    Vite
+- React.js
+- Vite
 
 ### サーバーサイド
-    Amazon Linux 2
-    Nginx
-    Express
-    Node.js
-    Prisma
-    PostgreSQL
+- Amazon Linux 2
+- Nginx
+- Express
+- Node.js
+- Prisma
+- PostgreSQL
     
 ### 使用ライブラリ
-    react-router-dom
-    react-fast-marquee
-    react-helmet-async
-    react-unity-webgl
+- react-router-dom
+- react-fast-marquee
+- react-helmet-async
+- react-unity-webgl
 
 ### インフラ
-    AWS EC2
-    AWS RDS
-    AWS S3
-    AWS Lambda
-    AWS CloudFront
-    お名前.comレンタルサーバー
+- AWS EC2
+- AWS RDS
+- AWS S3
+- AWS Lambda
+- AWS CloudFront
+- お名前.comレンタルサーバー
 
 
 ### その他
-    Unity
-    Live2D SDK for Web
+- Unity
+- Live2D SDK for Web
 
 採用しなかったもの
 - AWS ElastCache    
@@ -68,7 +68,7 @@ todo
 
 ## おまけ
 - 昔Unityで作った怪しい物理演算のブロック崩しをビルドし直して埋め込んでます。
-- 前に作ったLive2Dのアニメーションアプリを埋め込んでいます。
+- 前に作ったLive2Dのアニメーションアプリを埋め込んでいます。（未実装）
 - 隠しページがあったりなかったりするらしい。
 
 <br>
@@ -119,7 +119,7 @@ todo
 JavaScriptを扱いなれていなかったためコマンドについてイマイチ理解していなかった。今でも完璧に理解しているとは言い難いが使える程度にはなった。今回は基本的に`npm`しか使っておらず、Prisma関連のみ`npx`を使っている。
 
 ### BrowserRouterとHashRouter
-`react-router-dom`を使うにあたって、ホームからの遷移は可能だがリロードすると読み込んでくれないという問題にハマった。結論として[.htaccessでリダイレクト設定をすればよい](https://stackoverflow.com/questions/57852786/htaccess-rewrite-for-react-using-react-router)（ホームからURLのpathを参照してRoutesの分岐を行う）ということだったが、別の解決策としてHashRouterを使う方法もあるようだ。HashRouterを使うとURLに/#/が入って見栄えが好きじゃないので採用しなかった。ちなみにお名前.comのレンタルサーバーには`.htaccess`を設定するGUIがある。
+`react-router-dom`を使うにあたって、ホームからの遷移は可能だがリロードすると読み込んでくれないという問題にハマった。結論として[.htaccessでリダイレクト設定をすればよい](https://stackoverflow.com/questions/57852786/htaccess-rewrite-for-react-using-react-router)（ホームからURLのpathを参照してRoutesの分岐を行う）ということだったが、別の解決策としてHashRouterを使う方法もあるようだ。HashRouterを使うとURLに`/#/`が入って見栄えが好きじゃないので採用しなかった。ちなみにお名前.comのレンタルサーバーには`.htaccess`を設定するGUIがある。
 
 ### 動的型付け言語に苦労
 JavaScriptとかいう言語、型がうまく合ってないっぽいから`typeof()`で確認しようとしたら`object`って返ってくるの発狂しそうになる。やっぱり時代はﾀｲｽｸかもしれない。
@@ -145,7 +145,7 @@ vpnその辺
 todo
 
 ### AmazonLinux2でpm2を使おうとしたらバージョンが合わず使えない
-nvmを入れて`nvm use 16`で常に古いバージョンを指定しないといけないみたい。ここの記事がとても参考になった。<br>[amazonlinux2 に nodeとnpmをインスコ](https://qiita.com/ma7ma7pipipi/items/c7ee11c6036ec35a1caa)
+nvmを入れて`nvm use 16`で常に古いバージョンを指定しないといけないみたい。ここの記事がとても参考になった。[amazonlinux2 に nodeとnpmをインスコ](https://qiita.com/ma7ma7pipipi/items/c7ee11c6036ec35a1caa)
 
 ### キャッシュについて
 サーバー側で使われるキャッシュにはコンテンツキャッシュとインメモリキャッシュで違いがある。CloudFrontはコンテンツキャッシュにあたるもので、DDoS攻撃対策にもなるとのことだったので採用している。今回はアクセストークンを使うという訳でもないしRDSへの負荷はあまりないのでインメモリキャッシュに相当するElastCasheは見送った。あと高いので。
@@ -169,4 +169,4 @@ todo
 todo
 
 ### 後悔
-次からはmicroCMSみたいなヘッドレスCMSをつかってバックの構築を楽にしたい。別に反省はしていないが後悔はある。
+次からはmicroCMSみたいなヘッドレスCMSをつかってバックの構築を楽にしたい。あるいはdockerを使うなどしてデプロイを簡単にしたい。別に反省はしていないが後悔はある。
