@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import defaultImgPath from "../assets/transparent.png"
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 const Illustrations = () => {
   const [illustsData,setIllustsData] = useState([]);
   const [illustsPath,setIllustsPath] = useState(defaultImgPath);
-  const [illustImgClass,setIllustsImgClass] = useState('IllustImg')
+  const [illustImgClass,setIllustsImgClass] = useState('illust-img')
 
   useEffect(()=>{
     fetch("https://d2n0vbpdmqpidn.cloudfront.net/pics")
@@ -20,24 +21,29 @@ const Illustrations = () => {
   const AspectCalc=(e)=>{
     const aspect = e.target.width/e.target.height;
     if(aspect>1){
-      setIllustsImgClass("IllustImg");
+      setIllustsImgClass("illust-img");
     }else{
-      setIllustsImgClass("IllustImgPort");
+      setIllustsImgClass("illust-img-port");
     }
   }
 
   
   return (
     <>
-      <h1 className='MainTitlePos'>Works</h1>
-      <div className='IllustButtonsPos'>
-        {illustsData.map((data,index)=>(
-          <span key={index} className='likeA' onClick={()=>setIllustsPath(data.path)}>■</span>
-        ))}
-      </div>
-      <div className='IllustPos'>
-        <img onLoad={AspectCalc} src={illustsPath} className={illustImgClass}/>
-      </div>
+      <HelmetProvider>
+        <Helmet>
+          <title>かにみそナックルカーブ - イラスト</title>
+        </Helmet>
+        <h1 className='main-title-pos'>Works</h1>
+        <div className='illust-buttons-pos'>
+          {illustsData.map((data,index)=>(
+            <span key={index} className='like-a' onClick={()=>setIllustsPath(data.path)}>■</span>
+          ))}
+        </div>
+        <div className='illust-pos'>
+          <img onLoad={AspectCalc} src={illustsPath} className={illustImgClass}/>
+        </div>
+      </HelmetProvider>
     </>
   )
 }

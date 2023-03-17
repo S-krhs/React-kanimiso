@@ -7,7 +7,7 @@ const Header = () => {
       <Marquee speed="60" pauseOnHover="true" gradient="">
           <div className="gaming">
               <strong>
-                  <h2><span className='TitleSpace'>ここはくらはしのサイト「かにみそナックルカーブ」です。</span></h2>
+                  <h2><span className='title-margin'>ここはくらはしのサイト「かにみそナックルカーブ」です。</span></h2>
               </strong>
           </div>
       </Marquee>

@@ -15,7 +15,13 @@ export const LinksData=[
         "SiteName":"わくわくインターネット",
         "User":"はやかわ",
         "URL":"https://kewiihai.com/",
-        "Description":"わるいオタクのいいインターネットがある。"
+        "Description":"いいインターネットがある。"
+    },
+    {
+        "SiteName":"国道864号線沿い",
+        "User":"はやかわ",
+        "URL":"https://kewiihai.hatenablog.com/archive",
+        "Description":"「わくわくインターネット」でお馴染みはやかわさんのブログ。いい記事がたくさんある。"
     },
     {
         "SiteName":"学会追放",

@@ -1,43 +1,35 @@
 import React from 'react'
 import './App.css'
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom"
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Header from './components/Header'
 import Home from './components/Home'
 import Links from './components/Links'
 import Sidebar from './components/Sidebar'
 import Diary from './components/Diary'
 import Illustrations from './components/Illustrations'
-import UnderConstruction from './components/UnderConstruction'
 import Games from './components/Games'
+import Hidden from './components/Hidden';
 
 const App = () => {
-  const componentName="かにみそナックルカーブ - ホーム";
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>{componentName}</title>
-        </Helmet>
-        <Router>
-          <div className="App">
-            <div className='Header'><Header /></div>
-            <div className='Sidebar'><Sidebar /></div>
+      <Router>
+        <div className="App">
+          <div className='header'><Header /></div>
+          <div className='sidebar'><Sidebar /></div>
 
-            <Routes>
-              <Route path="/" element={ <div className='Main'><Home /></div> }/>
-              <Route path="/diary" element={ <div className='Main'><Diary /></div> }/>
-              <Route path="/links" element={ <div className='Main'><Links /></div> }/>
-              <Route path="/under-construction" element={ <div className='Main'> <UnderConstruction /> </div> }/>
-              <Route path="/works" element={<div className='Main'><Illustrations /></div>} />
-              <Route path="/games" element={<div className='Main'><Games /></div>} />
-            </Routes>
+          <Routes>
+            <Route path="/" element={ <div className='main'><Home /></div> }/>
+            <Route path="/diary" element={ <div className='main'><Diary /></div> }/>
+            <Route path="/links" element={ <div className='main'><Links /></div> }/>
+            <Route path="/works" element={<div className='main'><Illustrations /></div>} />
+            <Route path="/games" element={<div className='main'><Games /></div>} />
+            <Route path="/hidden" element={<div className='main'><Hidden /></div>} />
+          </Routes>
 
-          </div> 
-        </Router>  
-      </HelmetProvider>
+        </div> 
+      </Router>
     </>
-
   )
 }
 

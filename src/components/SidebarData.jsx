@@ -5,12 +5,12 @@ export const SidebarMainLink=[
         link: ""
     },
     {
-        title: "イラスト",
-        link: "works"
-    },
-    {
         title: "日記",
         link: "diary"
+    },
+    {
+        title: "イラスト",
+        link: "works"
     },
     {
         title: "リンク集",
@@ -22,21 +22,17 @@ export const SidebarMainLink=[
     }
 ];
 
-export const SidebarIllustrationsLink=[
+export const SidebarOtherPageLink=[
     {
-        title: "2020年以前",
-        link: "illusts/2020"
+        title: "ツイッター",
+        link: "https://twitter.com/front_1227"
     },
     {
-        title: "2021年",
-        link: "illusts/2021"
+        title: "pixiv",
+        link: "https://www.pixiv.net/users/3314105"
     },
     {
-        title: "2022年",
-        link: "illusts/2022"
-    },
-    {
-        title: "2023年",
-        link: "illusts/2023"
-    },
+        title: "GitHub",
+        link: "https://github.com/S-krhs"
+    }
 ]

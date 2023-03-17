@@ -22,7 +22,15 @@
 
 
 /* メイン関連 */
-.Main{
+h2{
+  text-align: center;
+}
+
+p{
+  text-align: center;
+}
+
+.main{
   grid-area: main;
   background-color:rgb(218, 218, 218);
   /* background-image: var(--MainBackgroundImage); */
@@ -30,83 +38,88 @@
   overflow-x: hidden;
 }
 
-.MainTitlePos{
+.main-title-pos{
   text-align: center;
   margin-top: 60px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
-.IllustButtonsPos{
+.illust-buttons-pos{
   width:80%;
   margin: auto;
   margin-bottom: 30px;
   overflow-wrap: break-word;
 }
 
-.likeA {
+.like-a {
   color: #0000EE;
   border-bottom: 1px solid;
   font-size: xx-large;
   margin: 4px;
  }
  
-.likeA:visited {
+.like-a:visited {
   color: #551A8B;
   border-bottom: 1px solid;
  }
  
-.likeA:active {
+.like-a:active {
   color: #FF0000;
   border-bottom: 1px solid;
 }
 
-.likeA:hover{
+.like-a:hover{
   cursor: pointer;
 }
 
-.IllustPos{
+.illust-pos{
   width: 88%;
   margin: auto;
   text-align: center;
   margin-bottom: 60px;
 }
 
-.IllustImg {
+.illust-img {
   width: 100%;
   height: auto;
 }
 
-.IllustImgPort {
+.illust-img-port {
   width: 70%;
   height: auto;
 }
 
-.LinksPos{
+.links-pos{
   margin: 50px;
   margin-top: 70px;
 }
 
-.Link{
+.link{
   margin-bottom: 10px;
 }
 
-.LinkName{
+.link-name{
   list-style: inside;
 }
 
-.LinkDescription{
+.link-description{
   list-style: none;
   margin-left:40px;
 }
 
-.GamePos{
+.game-pos{
   text-align: center;
   height: 600px;
   background: #000;
 }
 
+.game-description{
+  margin-top: 30px;
+  text-align: center;
+}
+
 /* ヘッダー関連 */
-.Header {
+.header {
   width: 100%;
   grid-area: header;
   background: #000;
@@ -131,50 +144,51 @@
   91% {color: #ff007f}
 }
 
-.TitleSpace {
+.title-margin {
   margin-left: 0px;
   margin-right: 50px;
 }
 
 
 /* サイドバー関連 */
-.Sidebar {
+.sidebar {
   grid-area: leftbar;
   overflow: scroll;
   overflow-x: hidden;
   background-image: var(--SidebarBackgroundImage);  
 }
 
-.SidebarProfile{
+.sidebar-profile{
   text-align: center;
   padding-top: 30px;
 }
 
-.MyName{
+.my-name{
   font-size: large;
 }
 
-.MyIcon{
+.my-icon-pos{
   margin: auto;
-  width:180px;
-  height:180px;
+  width:170px;
+  height:170px;
   background-color: #00f;
   margin-bottom: 30px;
 }
 
-.MyIconImg{
-  width:180px;
+.my-icon-img{
+  width:170px;
   height:auto;
+  margin: auto;
 }
 
-.SidebarLink{
+.sidebar-link{
   height: 100%;
   width: 100%;
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
-.SidebarLink .headline{
+.headline{
   font-family: Monotype Corsiva;
   font-style: italic;
   font-size: x-large;
@@ -184,7 +198,13 @@
   margin-left: 20px;
 }
 
-.SidebarLink .row{
+.rows{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.row{
+  line-height: 25px;
   list-style: none;
   text-align: left;
   text-decoration: underline;
@@ -192,6 +212,11 @@
   margin-top: 5px;
 }
 
-.Margin-test{
-  margin-top: 1000px;
+.margin-test{
+  margin-top: 300px;
+}
+
+.hidden{
+  text-align: right;
+  font-size: x-small;
 }
