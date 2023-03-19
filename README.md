@@ -167,7 +167,5 @@ todo - まとめと予定
 ## あとがき
 Reactを使うのが主目的だったはずなのに気づいたらほとんどインフラ周りを触ってる時間だった気がする。次からはmicroCMSみたいなヘッドレスCMSをつかってバックの構築を楽にしたい。あるいはdockerを使うなどしてデプロイを簡単にできるようにしたい。最初なので別に反省はしていないが後悔はちょっとある。<br>
 あとこれREADMEじゃなくてQiitaとかZennに書いたほうが良かったのでは？<br>
-<center>
-    <img width="240" src=./github/nekopara_ahiru.png><br>
-    とほほ・・・・・・
-</center>
+<img width="240" src=./github/nekopara_ahiru.png><br>
+とほほ・・・・・・

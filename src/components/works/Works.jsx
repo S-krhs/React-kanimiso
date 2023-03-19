@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import defaultImgPath from "../assets/transparent.png"
+import defaultImgPath from "../../assets/transparent.png"
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
-const Illustrations = () => {
+const Works = () => {
   const [illustsData,setIllustsData] = useState([]);
   const [illustsPath,setIllustsPath] = useState(defaultImgPath);
   const [illustImgClass,setIllustsImgClass] = useState('illust-img')
@@ -48,4 +48,4 @@ const Illustrations = () => {
   )
 }
 
-export default Illustrations
+export default Works

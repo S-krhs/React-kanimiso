@@ -9,6 +9,10 @@ export const SidebarMainLink=[
         link: "diary"
     },
     {
+        title: "メモ帳",
+        link: "memo"
+    },
+    {
         title: "イラスト",
         link: "works"
     },

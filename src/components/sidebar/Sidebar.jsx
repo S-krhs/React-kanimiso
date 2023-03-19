@@ -1,0 +1,84 @@
+import React from 'react'
+import { Link } from "react-router-dom"
+import { SidebarMainLink, SidebarOtherPageLink } from './SidebarData'
+import Icon from "../../assets/sidebar-profile-icon.png"
+
+const Sidebar = () => {
+  return (
+    <>
+        <div className='sidebar-contents'>
+            <div className='sidebar-access-counter'>
+                <p>あなたは</p>
+                <div className='access-counter-pos'>12345678</div>
+                <p>人目の訪問者です</p>
+                <div dangerouslySetInnerHTML={{__html: "<!-- そんなわけないだろ(ゴンテテ日記) -->"}} />
+            </div>
+            <div className='sidebar-profile'>
+                <div className='my-name'>
+                    <h4>
+                        <ruby>倶楽橋<rt>くらはし</rt></ruby>&nbsp;/&nbsp;しぇんこ
+                    </h4>
+                </div>
+                <div className='my-icon-pos'>
+                    <img className='my-icon-img' alt="" src={Icon} />
+                </div>
+                <div className='my-introduction'>
+                    <h4>自己紹介</h4>
+                    <p>インターネットにいます</p>
+                    <p>ときどきに絵を描きます</p>
+                </div>
+            </div>
+            <nav>
+                <ul className='sidebar-link'>
+                    <li className='headline'>
+                        Main Contents
+                    </li>
+                    <div className='rows'>
+                        {
+                            SidebarMainLink.map((value,index)=>(
+                                <li className='row' key={index}>
+                                    <Link to={value.link} >{value.title}</Link>
+                                </li>
+                            ))
+                        }
+                    <li className='row'>工事中...</li>
+                    </div>
+                </ul>
+                <ul className='sidebar-link'>
+                    <li className='headline'>
+                        Links
+                    </li>
+                    <div className='rows'>
+                        {
+                            SidebarOtherPageLink.map((value,index)=>(
+                                <li className='row' key={index}>
+                                    <a href={value.link} target="_blank" rel="noopener noreferrer">{value.title}</a>
+                                </li>
+                            ))
+                        }
+                    </div>
+                </ul>
+                <ul className='sidebar-link'>
+                    <li className='headline'>
+                        Admin
+                    </li>
+                    <div className='rows'>
+                        <li className='row'>
+                            <a href='./admin-dummy'>管理画面 - ダミー</a>
+                        </li>
+                        <li className='row'>
+                            <a href='./admin'>管理画面</a>
+                        </li>
+                    </div>
+                </ul>
+                <div className='margin-test'></div>
+                <div className='hidden'>
+                    <Link to="hidden" >.</Link>
+                </div>
+            </nav>
+        </div>
+    </>
+  )
+}
+
+export default Sidebar
