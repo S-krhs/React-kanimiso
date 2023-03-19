@@ -20,8 +20,9 @@
 }
 
 
-/* メイン関連 */
-h2{
+/* #region メイン関連 */
+
+.main h2{
   text-align: center;
 }
 
@@ -127,12 +128,28 @@ p{
   margin-top: 30px;
   text-align: center;
 }
+/* #endregion */ 
 
-/* ヘッダー関連 */
+/* #region ヘッダー関連 */
 .header {
   width: 100%;
   grid-area: header;
   background: #000;
+  overflow: hidden;
+}
+
+.marquee{
+  animation: marquee 13s linear infinite;
+  --child-width:10px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-700px);
+  }
 }
 
 .gaming {
@@ -154,13 +171,19 @@ p{
   91% {color: #ff007f}
 }
 
+.gaming h2 {
+  text-align: left;
+  white-space: nowrap;
+}
+
 .title-margin {
   margin-left: 0px;
   margin-right: 50px;
 }
 
+/* #endregion */ 
 
-/* サイドバー関連 */
+/* #region サイドバー関連 */
 .sidebar {
   grid-area: leftbar;
   overflow: scroll;
@@ -260,3 +283,4 @@ p{
   text-align: right;
   font-size: x-small;
 }
+/* #endregion */ 
