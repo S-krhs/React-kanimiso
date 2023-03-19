@@ -11,5 +11,5 @@ export default defineConfig({
     //     target: 'https://d2n0vbpdmqpidn.cloudfront.net/',
     //   }
     // }
-  }
+  },
 });

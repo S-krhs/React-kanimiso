@@ -1,6 +1,5 @@
 :root{
   --SidebarBackgroundImage :url(./assets/check-background.jpg);
-  --MainBackgroundImage :url(./assets/dot-background.png);
 }
 
 
@@ -43,6 +42,17 @@ p{
   margin-top: 60px;
   margin-bottom: 40px;
 }
+
+.entry-pos{
+  padding-inline: 100px;
+  padding-block: 20px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  /* background-color: #0000EE; */
+
+}
+
+
 
 .illust-buttons-pos{
   width:80%;
