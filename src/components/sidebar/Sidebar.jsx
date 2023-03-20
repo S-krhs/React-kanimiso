@@ -10,6 +10,7 @@ const Sidebar = () => (
           <div className="access-counter-pos">12345678</div>
           <p>人目の訪問者です</p>
           <div
+            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: "<!-- そんなわけないだろ(ゴンテテ日記) -->",
             }}
@@ -37,8 +38,8 @@ const Sidebar = () => (
           <ul className="sidebar-link">
             <li className="headline">Main Contents</li>
             <div className="rows">
-              {SidebarMainLink.map((value, index) => (
-                <li className="row" key={index}>
+              {SidebarMainLink.map((value) => (
+                <li className="row" key={value.id}>
                   <Link to={value.link}>{value.title}</Link>
                 </li>
               ))}
@@ -48,8 +49,8 @@ const Sidebar = () => (
           <ul className="sidebar-link">
             <li className="headline">Links</li>
             <div className="rows">
-              {SidebarOtherPageLink.map((value, index) => (
-                <li className="row" key={index}>
+              {SidebarOtherPageLink.map((value) => (
+                <li className="row" key={value.id}>
                   <a
                     href={value.link}
                     target="_blank"

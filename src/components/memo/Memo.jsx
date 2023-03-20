@@ -7,12 +7,12 @@ import parse from 'html-react-parser'
 const Memo = ({entries,setEntries}) => {
   const navigate = useNavigate();
   const param = useParams();
-  const entryId = param.id;
-  const entry = entries.find((v)=>v.id == entryId);
+  const entryId = parseInt(param.id,10);
+  const entry = entries.find((v)=>v.id === entryId);
 
   const Delete = (id_) =>{
     setEntries(
-      entries.filter((v) => (v.id != id_))
+      entries.filter((v) => (v.id !== id_))
     )
     navigate("../");
   }
@@ -22,7 +22,7 @@ const Memo = ({entries,setEntries}) => {
       <h2>{entry.title}</h2>
       <div>{parse(entry.text)}</div>
       <div>
-        <button onClick={()=>Delete(entryId)}>エントリを削除する</button>
+        <button type="button" onClick={()=>Delete(entryId)}>エントリを削除する</button>
       </div>
       <Link to="../" >一覧に戻る</Link>
     </>

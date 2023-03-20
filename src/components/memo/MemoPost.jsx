@@ -36,7 +36,7 @@ const MemoPost = ({entries,setEntries}) => {
           value={text}
           onChange={(event) => setText(event.target.value)}/>
       </div>
-      <div><button onClick={ () => Post() }>投稿する</button></div>
+      <div><button type="button" onClick={ () => Post() }>投稿する</button></div>
       <Link to="../" >一覧に戻る</Link>
     </>
   )
