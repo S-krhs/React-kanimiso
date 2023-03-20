@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 import defaultImgPath from "../../assets/transparent.png"
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 const Works = () => {
@@ -15,7 +15,7 @@ const Works = () => {
       setIllustsData(json);
       setIllustsPath(json.slice(-1)[0].path);
     })
-    .catch(error => {console.error('Expressサーバーとの通信に失敗しました。', error);})
+    .catch(error => console.error('Expressサーバーとの通信に失敗しました。', error))
   },[])
 
   const AspectCalc=(e)=>{
@@ -29,22 +29,20 @@ const Works = () => {
 
   
   return (
-    <>
-      <HelmetProvider>
+    <HelmetProvider>
         <Helmet>
           <title>かにみそナックルカーブ - イラスト</title>
         </Helmet>
         <h1 className='main-title-pos'>Works</h1>
         <div className='illust-buttons-pos'>
-          {illustsData.map((data,index)=>(
-            <span key={index} className='like-a' onClick={()=>setIllustsPath(data.path)}>■</span>
+          {illustsData.map((data)=>(
+            <span key={data.id} className='like-a' onClick={()=>setIllustsPath(data.path)}>■</span>
           ))}
         </div>
         <div className='illust-pos'>
-          <img onLoad={AspectCalc} src={illustsPath} className={illustImgClass}/>
+          <img alt="img" onLoad={AspectCalc} src={illustsPath} className={illustImgClass}/>
         </div>
       </HelmetProvider>
-    </>
   )
 }
 

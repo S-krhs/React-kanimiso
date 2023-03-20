@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import { SidebarMainLink, SidebarOtherPageLink } from "./SidebarData";
 import Icon from "../../assets/oguri-icon.png";
 
-const Sidebar = () => {
-  return (
-    <>
-      <div className="sidebar-contents">
+const Sidebar = () => (
+    <div className="sidebar-contents">
         <div className="sidebar-access-counter">
           <p>あなたは</p>
           <div className="access-counter-pos">12345678</div>
@@ -74,14 +72,12 @@ const Sidebar = () => {
               </li>
             </div>
           </ul>
-          <div className="margin-test"></div>
+          <div className="margin-test" />
           <div className="hidden">
             <Link to="hidden">.</Link>
           </div>
         </nav>
       </div>
-    </>
   );
-};
 
 export default Sidebar;

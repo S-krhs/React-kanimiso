@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint",
-    "lintfix": "npm run lint -- --fix",
+    "lintfix": "eslint --fix --ext .jsx,.js .",
     "format": "prettier --write \"**/*.+(js|json|yml)\""
   },
   "dependencies": {

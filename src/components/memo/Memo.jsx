@@ -1,7 +1,7 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams , Link, useNavigate } from 'react-router-dom'
 import parse from 'html-react-parser'
-import { Link, useNavigate } from "react-router-dom"
+
 
 
 const Memo = ({entries,setEntries}) => {

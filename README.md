@@ -28,7 +28,6 @@ https://kanimisoknuckle.com
     
 ### 使用ライブラリ
 - react-router-dom
-- react-fast-marquee
 - react-helmet-async
 - react-unity-webgl
 

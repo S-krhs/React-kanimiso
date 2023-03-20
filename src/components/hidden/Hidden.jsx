@@ -1,9 +1,7 @@
 import React from 'react'
 
-const Hidden = () => {
-  return (
+const Hidden = () => (
     <div>Hidden</div>
   )
-}
 
 export default Hidden

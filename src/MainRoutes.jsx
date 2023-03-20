@@ -1,4 +1,5 @@
 import { useRoutes } from "react-router-dom"
+import { useState } from 'react'
 import AdminDummy from './components/admin_dummy/AdminDummy'
 import Diary from './components/diary/Diary'
 import Games from './components/games/Games'
@@ -11,13 +12,12 @@ import Works from './components/works/Works'
 import MemoList from './components/memo/MemoList'
 import MemoPost from './components/memo/MemoPost'
 import NoMemo from './components/memo/NoMemo'
-import { useState } from 'react'
-import { firstEntry } from './components/memo/FirstEntry'
+import firstEntry from './components/memo/FirstEntry'
 
  const MainRoutes = () => {
   const [entries,setEntries] = useState([firstEntry,]);
 
-  let routes = useRoutes([
+  const routes = useRoutes([
     { path: '/', element: <Home /> },
     { path: '/diary', element: <Diary /> },
     { path: '/memo',

@@ -3,11 +3,8 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Outlet } from "react-router-dom"
 
 
-const MemoApp = ({entries,setEntries}) => {
-
-  return (
-    <>
-      <HelmetProvider>
+const MemoApp = ({entries,setEntries}) => (
+    <HelmetProvider>
         <Helmet>
           <title>かにみそナックルカーブ - メモ帳</title>
         </Helmet>
@@ -16,8 +13,6 @@ const MemoApp = ({entries,setEntries}) => {
         <p>日記とやってることはだいたい同じのブログもどき。エントリを集めて君だけの最強の日記を作ろう！</p>
         <div className='entry-pos'><Outlet entries={entries} setEntries={setEntries}/></div>
       </HelmetProvider>
-    </>
   )
-}
 
 export default MemoApp

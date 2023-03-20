@@ -26,7 +26,7 @@
   text-align: center;
 }
 
-p{
+.main p{
   text-align: center;
 }
 
@@ -139,7 +139,7 @@ p{
 }
 
 .marquee{
-  animation: marquee 13s linear infinite;
+  animation: marquee 25s linear infinite;
   --child-width:10px;
 }
 
@@ -184,6 +184,10 @@ p{
 /* #endregion */ 
 
 /* #region サイドバー関連 */
+.sidebar p{
+  text-align: center;
+}
+
 .sidebar {
   grid-area: leftbar;
   overflow: scroll;

@@ -1,11 +1,9 @@
 import React from "react";
-import UnityGame from "./UnityGame";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import UnityGame from "./UnityGame";
 
-const Games = () => {
-  return (
-    <>
-      <HelmetProvider>
+const Games = () => (
+    <HelmetProvider>
         <Helmet>
           <title>かにみそナックルカーブ - ゲーム</title>
         </Helmet>
@@ -19,8 +17,6 @@ const Games = () => {
           <p>物理演算がおかしい。いちいちRを押させるなよ。</p>
         </div>
       </HelmetProvider>
-    </>
   );
-};
 
 export default Games;

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 const UnityGame = () => {
-  const { unityProvider, isLoaded } = useUnityContext({
+  const { unityProvider } = useUnityContext({
     loaderUrl: "../unity-build/Build/Breakout.loader.js",
     dataUrl: "../unity-build/Build//Breakout.data.unityweb",
     frameworkUrl: "../unity-build/Build//Breakout.framework.js.unityweb",
@@ -10,19 +10,15 @@ const UnityGame = () => {
     streamingAssetsUrl: "../unity-build/StreamingAssets",
   });
 
-  useEffect(() => {
-    return () => {
+  useEffect(() => () => {
       window.location.reload();
-    };
-  }, []);
+    }, []);
 
   return (
-    <>
-      <Unity
+    <Unity
         unityProvider={unityProvider}
         style={{ width: 800, height: 600 }}
       />
-    </>
   );
 };
 

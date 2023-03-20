@@ -1,3 +1,4 @@
+/* eslint-disable  */
 function createUnityInstance(e, t, r) {
   function n(e, r) {
     if (!n.aborted && t.showBanner)
