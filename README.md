@@ -6,7 +6,7 @@ S3とRDSの連携に使うLambda関数は[こちら](https://github.com/S-krhs/L
 ## URL
 https://kanimisoknuckle.com
 
-~ここにスクショを挿入~
+<img alt="tohoho" src=./github/screenshot_01.png><br>
 
 ## 動機
 友人がレンタルサーバー上にHTMLサイトを作っていてそれに触発された。初めてのweb開発なのでせっかくなら流行りの技術を作ってみようということでReactを採用。経緯がそれなので基本的なコンセプトとして動的な要素をあまり前面には押し出さないが、内部では積極的に使用する。
@@ -15,21 +15,22 @@ https://kanimisoknuckle.com
 フロント部分はレンタルサーバーのファイルマネージャー上にビルドしたReactアプリを直接アップロードし、バック部分はAWS EC2上にAPサーバーを立ち上げる形で構成しています。どうしてこの構成になったのかなど詳しい経緯は[こちら](#そもそもなんでお名前com)。
 
 ### フロントエンド
-- React.js
-- Vite
+- React.js 18.2.0
+- Vite 4.0.4
 
 ### サーバーサイド
 - Amazon Linux 2
-- Nginx
-- Express
-- Node.js
-- Prisma
-- PostgreSQL
+- Nginx 1.22.1
+- Express 4.18.2
+- Node.js 16.19.1
+- PM2 5.2.2 
+- Prisma Client 4.10.1
+- PostgreSQL 13.7
     
 ### 使用ライブラリ
-- react-router-dom
-- react-helmet-async
-- react-unity-webgl
+- react-router-dom 6.6.2
+- react-helmet-async 1.3.0
+- react-unity-webgl 9.4.0
 
 ### インフラ
 - AWS EC2
@@ -41,7 +42,8 @@ https://kanimisoknuckle.com
 
 
 ### その他
-- Unity
+- EsLint 8.33.0
+- Unity 2019.4.4f1 -> 2021.3.8f1
 - Live2D SDK for Web
 
 採用しなかったもの
@@ -62,15 +64,15 @@ todo - 図の作成
 todo - ページ/コンポーネント一覧の作成
 
 ## ToDo
-- 認証機能を実装して管理コンソールを作成する。
-- 管理画面からブログ投稿を行えるようにする。
-- モバイル向けのUI設計を行う。
+- アクセスカウンタをちゃんと動かす。
+- 管理画面を実装しブログ投稿を行えるようにする。
+- レスポンシブなUI設計を行う。
 - もっとモダンなUIへの切り替えが出来るようにする。
-- RDSはプライベートサブネットに置き直したい。
+- RDSはプライベートサブネットに置き直したいけどEC2を踏み台にするのは面倒くさいな。
 
 ## おまけ
 - 昔Unityで作った怪しい物理演算のブロック崩しをビルドし直して埋め込んでいる。
-- 前に作ったLive2Dのアニメーションアプリを埋め込む。（未実装）
+- 前に作ったLive2Dのアニメーションアプリを埋め込む予定。（未実装）
 - 隠しページがあったりなかったりするらしい。
 
 <br>
@@ -118,7 +120,7 @@ todo - まとめる / corsについてのリンク
 最初に調べて参考にしたプロジェクトがViteで作られていたため何も分からない状態で`create vite`を使っていた。検索で出てくるものは大抵`create-react-app`で作られているため`package.json`や`vite.config.js`まわりの書き方で躓いた。通常のNode.jsでのデフォルト設定との違いもあり`npm run dev`とか`npm run start`とかでもたまに書き間違えるので注意（最初にまとめて設定してもいいのかもしれない）。
 
 ### npm/npx/yarnって何？
-Node.jsで動作するパッケージマネージャーのこと。JavaScript/Node.jsを扱いなれていなかったためこの辺りのコマンドについてイマイチ理解していなかった。`npm`と`yarn`は似たようなもので`npx`を使うことで未インストールのモジュールを使えるらしい。今でも完璧に理解しているとは言い難いが、一応使える程度にはなったと思う。今回は基本的に`npm`しか使っておらず、Prisma関連のみ`npx`を使っている。`pnpm`は知らん。
+Node.jsで動作するパッケージマネージャーのこと。JavaScript/Node.jsを扱いなれていなかったためこの辺りのコマンドについてイマイチ理解していなかった。`npm`と`yarn`は似たようなもので`npx`を使うことで未インストールのモジュールを使えるらしい。今でも完璧に理解しているとは言い難いが、一応使える程度にはなったと思う。今回は基本的に`npm`しか使っておらず、Prisma studioのみ`npx`を使っている。`pnpm`は知らん。
 
 ### BrowserRouterとHashRouter
 `react-router-dom`を使うにあたって、ホームからの遷移は可能だがリロードすると読み込んでくれないという問題にハマった。結論として[.htaccessでリダイレクト設定をすればよい](https://stackoverflow.com/questions/57852786/htaccess-rewrite-for-react-using-react-router)（ホームからURLのpathを参照してRoutesの分岐を行う）ということだったが、別の解決策としてHashRouterを使う方法もあるようだ。HashRouterを使うとURLに`/#/`が入って見栄えが好きじゃないので採用しなかった。ちなみにお名前.comのレンタルサーバーには`.htaccess`を設定するGUIがある。
@@ -165,6 +167,8 @@ todo - まとめと予定
 
 ## あとがき
 Reactを使うのが主目的だったはずなのに気づいたらほとんどインフラ周りを触ってる時間だった気がする。次からはmicroCMSみたいなヘッドレスCMSをつかってバックの構築を楽にしたい。あるいはdockerを使うなどしてデプロイを簡単にできるようにしたい。最初なので別に反省はしていないが後悔はちょっとある。<br>
-あとこれREADMEじゃなくてQiitaとかZennに書いたほうが良かったのでは？<br>
-<img width="240" src=./github/nekopara_ahiru.png><br>
-とほほ・・・・・・
+あとこれREADMEじゃなくてQiitaとかZennに書いたほうが良かったのでは？<br><br>
+<p align="center">
+    <img alt="tohoho" width="240" src=./github/nekopara_ahiru.png><br>
+    とほほ・・・・・・
+<p align="center">
