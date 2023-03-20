@@ -150,10 +150,10 @@ Expressサーバー側のコードで、`require`すべきところで`import`�
 todo - ここはやばい/いろいろある
 
 ### pemキーの権限設定にchmodが使えない
-win環境だとchmodは使えないらしいので代わりに~~icaclsを使いましょう~~……と思っていたけど普通にエクスプローラー上で設定できますね、これ。ファイルを右クリックして出てくるプロパティのセキュリティタブで編集すればいいだけでした……。
+win環境だとchmodは使えないらしいので代わりに~~icaclsを使いましょう~~……と思っていたけど普通にエクスプローラー上で設定できますね、これ。ファイルを右クリックして出てくるプロパティのセキュリティタブで編集すればよい。
 
 ### SQL方言の違い
-以前SQL Serverを触ったことがあったのですが、今回はPostgreSQLということで所謂SQL方言の違いで「あれ？」と思うことがありました。あと同時並行で別のプロジェクトではMySQLを扱っていたのでそれもまた「ウ～ン？」となり……。管理ツールの方もSSMS、phpMyAdmin、pgAdminなどいろいろあってそれぞれ微妙に使い勝手が違うのもちょっとしたストレスでした。途中からはORMとしてPrismaを使うようになり、特にPrisma StudioのシンプルなUIがかなり分かりやすいのでありがたかったです。基本生のSQLを書かなくて済むのは本当にうれしい。
+以前SQL Serverを触ったことがあったが、今回はPostgreSQLということで所謂SQL方言の違いで「あれ？」と思うことがあった。あと同時並行で別のプロジェクトではMySQLを扱っていたのでそれもまた「ウ～ン？」となり……。管理ツールの方もSSMS、phpMyAdmin、pgAdminなどいろいろあってそれぞれ微妙に使い勝手が違うのもちょっとしたストレスになったり。途中からはORMとしてPrismaを使うようになり、特にPrisma StudioのシンプルなUIがかなり分かりやすくてよかった。基本生のSQLを書かなくて済むのは本当にうれしい。
 
 ### AWSの構築関連
 todo - セキュリティ/vpn/その辺
@@ -169,11 +169,34 @@ todo - まとめる / 一番苦労したのでていねいに
 
 ### EsLintとPrettier
 とりあえず入れて見よう見まねで設定したもの。ビルドしたReactアプリのコードは整形されて分かりやすくなったが、実は使い方がイマイチよく分かっていない。~~今後ちゃんと調べます。~~<br>
-調べたところ今までちゃんと働いていないことが判明したので動くようにしました。気に入らないルールをいくつか無効にしてしまったが良かったのだろうか。(2023/03/20 追記)
+調べたところ今までちゃんと働いていないことが判明したので動くように修正(2023/03/20)。気に入らないルールをいくつか無効にしてしまったが良かったのだろうか。
 
 ### webGLアプリのメモリリーク
 todo - メモリリークの経緯と調べたこと<br>
-結局`useEffect()`の[副作用フック](https://takamints.hatenablog.jp/entry/cleanup-an-async-use-effect-hook-of-react-function-componet)を使って[明示的にリロードを挟む](https://morioh.com/p/f228a0a3f3a6)という力技で誤魔化したが、chatGPTくんには本質的な解決になってないと怒られた。Unityアプリ側でメモリ解放のためのフックを作るとかすればいいのだろうか。何かいい方法があれば教えてください。
+結局`useEffect()`の[副作用フック](https://takamints.hatenablog.jp/entry/cleanup-an-async-use-effect-hook-of-react-function-componet)を使って[明示的にリロードを挟む](https://morioh.com/p/f228a0a3f3a6)という力技で誤魔化したが、chatGPTくんには本質的な解決になってないと怒られた。Unityアプリ側でメモリ解放のためのフックを作るとかすればいいのだろうか。何かいい方法があれば教えてください。<br>
+追記：loader.jsを検索していたら
+```
+e.destroyInstance = function () {
+return a ? a.close().then(function () {
+    a = null
+}) : Promise.resolve()
+},
+e.clearCache = function () {
+return e.destroyInstance().then(function () {
+    return new Promise(function (e, r) {
+    var n = o.deleteDatabase(t.name);
+    n.onsuccess = function () {
+        e()
+    }, n.onerror = function () {
+        r(new Error("Could not delete database."))
+    }, n.onblocked = function () {
+        r(new Error("Database blocked."))
+    }
+    })
+})
+}
+```
+というコードを発見したのでclearCacheを実行したらいいのかも。今度やってみよう、乞うご期待。
 
 ### chatGPTくんについて
 todo - 感想 / なんとなく「あ～これはダメなやつだな……」っていうのが分かってくる。
@@ -183,7 +206,7 @@ todo - 感想 / なんとなく「あ～これはダメなやつだな……」�
 [2000年代風ホームページの作り方](https://shota11.stars.ne.jp/net/04/)<br>
 あとここも<br>
 [90年代ホームページの作り方 - Y氏は暇人](https://y-ta.net/homepage90/)<br>
-それとこの記事（READMEのことを記事と言うな）を書いている時にこんなサイトも見つけました。<br>
+それとこの記事（READMEのことを記事と言うな）を書いている時にこんなサイトも見つけた。<br>
 [BADオープンデータ供養寺](https://bad-data.rip/)
 
 ### AWSの無料枠とその後
