@@ -7,16 +7,17 @@ const Works = () => {
   const [illustsData,setIllustsData] = useState([]);
   const [illustsPath,setIllustsPath] = useState(defaultImgPath);
   const [illustImgClass,setIllustsImgClass] = useState('illust-img')
+  const URL=`${import.meta.env.VITE_BACK_SERVER_URL}/pics`;
 
   useEffect(()=>{
-    fetch("https://d2n0vbpdmqpidn.cloudfront.net/pics")
+    fetch(URL)
     .then(res=>res.json())
     .then(json=>{
       setIllustsData(json);
       setIllustsPath(json.slice(-1)[0].path);
     })
     .catch(error => console.error('Expressサーバーとの通信に失敗しました。', error))
-  },[])
+  },[URL])
 
   const AspectCalc=(e)=>{
     const aspect = e.target.width/e.target.height;

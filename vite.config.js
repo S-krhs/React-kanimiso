@@ -6,11 +6,6 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 5173,
-    // proxy: {
-    //   '/pics': {
-    //     target: 'https://d2n0vbpdmqpidn.cloudfront.net/',
-    //   }
-    // }
+    port: 5173
   },
 });
