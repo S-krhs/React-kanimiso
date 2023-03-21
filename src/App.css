@@ -8,15 +8,28 @@
   padding: 0;
 
   max-width: 1350px;
-  min-width: 320px;
   height: 100vh;
 
   display: grid;
   grid-template-areas: 
   "header header"
   "leftbar main";
-  grid-template-columns: 220px auto;
+  grid-template-columns: 230px auto;
   grid-template-rows: 36px auto;
+}
+
+@media screen and (max-width: 928px){
+  .App {
+    min-width: 320px;
+
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "topbar"
+    "main";
+    grid-template-columns: auto;
+    grid-template-rows: 36px 60px auto;
+  }
 }
 
 
@@ -28,6 +41,10 @@
 
 .main p{
   text-align: center;
+}
+
+.main span {
+  display: inline-block;
 }
 
 .main{
@@ -52,8 +69,6 @@
   /* background-color: #0000EE; */
 
 }
-
-
 
 .illust-buttons-pos{
   width:80%;
@@ -286,5 +301,36 @@
 .hidden{
   text-align: right;
   font-size: x-small;
+}
+/* #endregion */ 
+
+/* #region トップバー関連 */
+.topbar {
+  grid-area: topbar;
+  overflow: hidden;
+  background-image: var(--SidebarBackgroundImage);  
+}
+
+.topbar-contents {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.topbar-link{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.cols{
+  text-align: center;
+}
+
+.col{
+  font-size: small;
+  line-height: 25px;
+  list-style: none;
+  display: inline;
+  text-decoration: underline;
+  margin: 5px;
 }
 /* #endregion */ 

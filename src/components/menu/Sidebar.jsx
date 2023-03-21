@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SidebarMainLink, SidebarOtherPageLink } from "./SidebarData";
+import { MenubarMainLink, MenubarOtherPageLink } from "./MenubarData";
 import Icon from "../../assets/oguri-icon.png";
 
 const Sidebar = () => (
@@ -38,7 +38,7 @@ const Sidebar = () => (
           <ul className="sidebar-link">
             <li className="headline">Main Contents</li>
             <div className="rows">
-              {SidebarMainLink.map((value) => (
+              {MenubarMainLink.map((value) => (
                 <li className="row" key={value.id}>
                   <Link to={value.link}>{value.title}</Link>
                 </li>
@@ -49,7 +49,7 @@ const Sidebar = () => (
           <ul className="sidebar-link">
             <li className="headline">Links</li>
             <div className="rows">
-              {SidebarOtherPageLink.map((value) => (
+              {MenubarOtherPageLink.map((value) => (
                 <li className="row" key={value.id}>
                   <a
                     href={value.link}

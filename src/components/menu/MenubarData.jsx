@@ -1,4 +1,4 @@
-export const SidebarMainLink = [
+export const MenubarMainLink = [
   {
     id:1,
     title: "ホーム",
@@ -31,7 +31,7 @@ export const SidebarMainLink = [
   },
 ];
 
-export const SidebarOtherPageLink = [
+export const MenubarOtherPageLink = [
   {
     id:1,
     title: "ツイッター",

@@ -1,18 +1,24 @@
 import React from 'react'
 import './App.css'
 import { BrowserRouter as Router} from "react-router-dom"
-import Sidebar from './components/sidebar/Sidebar'
+import { useMediaQuery } from "react-responsive"
+import Sidebar from './components/menu/Sidebar'
 import MainRoutes from './MainRoutes'
 import Marquee from './components/marquee/Marquee'
+import Topbar from './components/menu/Topbar'
 
-const App = () => (
+const App = () => {
+  const isMobile = useMediaQuery({ query: '(max-width: 928px)' });
+  return(
     <div className="App">
         <Router>
           <div className='header'><Marquee /></div>
-          <div className='sidebar'><Sidebar /></div>
+          {!isMobile && <div className='sidebar'><Sidebar /></div>}
+          {isMobile && <div className='topbar'><Topbar /></div>}
           <div className='main'><MainRoutes /></div>
         </Router>
        </div>
   )
+}
 
 export default App

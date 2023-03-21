@@ -13,7 +13,8 @@ const Links = () => (
             LinksData.map((link)=>(
               <div key={link.id} className='link'>
                 <li className='link-name'>
-                  <a href={link.URL} target="_blank" rel="noopener noreferrer">{link.SiteName}</a>{`  - ${  link.User  }さん`}
+                  <span><a href={link.URL} target="_blank" rel="noopener noreferrer">{link.SiteName}</a></span>
+                  <span>{`  - ${  link.User  }さん`}</span>
                 </li>
                 <li className='link-description'>{link.Description}</li>
               </div>
