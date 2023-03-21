@@ -18,7 +18,7 @@
   grid-template-rows: 36px auto;
 }
 
-@media screen and (max-width: 928px){
+@media screen and (max-width: 768px){
   .App {
     min-width: 320px;
 
@@ -28,7 +28,7 @@
     "topbar"
     "main";
     grid-template-columns: auto;
-    grid-template-rows: 36px 60px auto;
+    grid-template-rows: 36px 70px auto;
   }
 }
 
@@ -50,14 +50,14 @@
 .main{
   grid-area: main;
   background-color:rgb(218, 218, 218);
-  /* background-image: var(--MainBackgroundImage); */
   overflow: scroll;
   overflow-x: hidden;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .main-title-pos{
   text-align: center;
-  margin-top: 60px;
   margin-bottom: 40px;
 }
 
@@ -83,6 +83,12 @@
   font-size: xx-large;
   margin: 4px;
  }
+ @media screen and (max-width: 768px){
+  .like-a {
+    font-size: x-large;
+    margin: 3px;
+   }
+}
  
 .like-a:visited {
   color: #551A8B;
@@ -113,6 +119,12 @@
 .illust-img-port {
   width: 70%;
   height: auto;
+}
+@media screen and (max-width: 768px){
+  .illust-img-port {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .links-pos{
@@ -312,8 +324,8 @@
 }
 
 .topbar-contents {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .topbar-link{
@@ -326,11 +338,10 @@
 }
 
 .col{
-  font-size: small;
   line-height: 25px;
   list-style: none;
   display: inline;
   text-decoration: underline;
-  margin: 5px;
+  margin: 7px;
 }
 /* #endregion */ 

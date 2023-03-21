@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import { MenubarMainLink, MenubarOtherPageLink } from "./MenubarData";
+import { TopbarMainLink, MenubarOtherPageLink } from "./MenubarData";
 
 const Topbar = () => (
     <div className="topbar-contents">
         <nav>
           <ul className="topbar-link">
             <div className="cols">
-              {MenubarMainLink.map((value) => (
+              {TopbarMainLink.map((value) => (
                 <li className="col" key={value.id}>
                   <Link to={value.link}>{value.title}</Link>
                 </li>

@@ -22,6 +22,7 @@ https://kanimisoknuckle.com
 - react-router-dom 6.6.2
 - react-helmet-async 1.3.0
 - react-unity-webgl 9.4.0
+- react-responsive 9.0.2
 
 ### サーバーサイド
 - Amazon Linux 2

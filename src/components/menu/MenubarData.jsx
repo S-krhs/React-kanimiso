@@ -1,4 +1,4 @@
-export const MenubarMainLink = [
+export const SidebarMainLink = [
   {
     id:1,
     title: "ホーム",
@@ -30,6 +30,34 @@ export const MenubarMainLink = [
     link: "games",
   },
 ];
+export const TopbarMainLink = [
+  {
+    id:1,
+    title: "ホーム",
+    link: "",
+  },
+  {
+    id:2,
+    title: "日記",
+    link: "diary",
+  },
+  {
+    id:3,
+    title: "メモ帳",
+    link: "memo",
+  },
+  {
+    id:4,
+    title: "イラスト",
+    link: "works",
+  },
+  {
+    id:5,
+    title: "リンク集",
+    link: "links",
+  },
+];
+
 
 export const MenubarOtherPageLink = [
   {

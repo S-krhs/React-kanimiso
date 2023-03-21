@@ -8,7 +8,7 @@ import Marquee from './components/marquee/Marquee'
 import Topbar from './components/menu/Topbar'
 
 const App = () => {
-  const isMobile = useMediaQuery({ query: '(max-width: 928px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   return(
     <div className="App">
         <Router>
