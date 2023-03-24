@@ -21,7 +21,7 @@ const MemoList = () =>{
                     {memo.title}
                   </div>
                   <div className='entry-thumb-text'>
-                    {memo.text}
+                      {memo.text.replace(/<[^>]*>|#/g, " ")}
                   </div>
                 </div>
               </Link>

@@ -10,6 +10,8 @@
   max-width: 1350px;
   height: 100vh;
 
+  overflow: hidden;
+
   display: grid;
   grid-template-areas: 
   "header header"
@@ -61,13 +63,47 @@
   margin-bottom: 40px;
 }
 
+/* #region memo */
 .entry-pos{
   text-align: center;
   line-height: 25px;
   padding-block: 30px;
   margin-block: 20px;
   /* background-color: #0000EE; */
+}
+.entry-pos h2{
+  padding-block: 20px;
+  margin-bottom: 5px;
+}
 
+.entry-pos h3{
+  padding-block: 10px;
+}
+
+.entry-text{
+  resize: none;
+  width: calc(100% - 40px);
+  max-width: 750px;
+  min-height: 200px;
+  font-size: large;
+  padding-inline: 20px;
+  padding-block: 10px;
+  margin-block: 40px;
+  margin-inline: auto;
+  text-align: left;
+}
+.entry-text p{
+  text-align: left;
+}
+.entry-text h2{
+  text-align: left;
+}
+
+
+.delete-button{
+  width: 160px;
+  height: 40px;
+  margin-block: 20px;
 }
 
 .entries{
@@ -152,10 +188,17 @@
 }
 @media screen and (max-width: 768px){
   .entry-thumb-box {
-    grid-template-columns: 0px auto;
+    grid-template-rows: auto 0px;
   }
   .entry-thumb-title{
-    padding-inline: 42px;
+    height: 80%;
+    padding-inline: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-block: auto;
+    font-size: large;
+    white-space: normal;
+    overflow-wrap: break-word;
   }
   .entry-thumb-text{
     padding-inline: 42px;
@@ -167,30 +210,48 @@
   padding-block: 5px;
   line-height: 40px;
   list-style: none;
+  overflow: hidden;
 }
 
-h3{
-  padding-block: 10px;
+.textarea-title-pos{
+  width: 100%;
+  overflow: hidden;
 }
 
 .textarea-title{
   resize: none;
-  width: 800px;
-  max-width: 100%;
+  width: calc(100% - 40px);
+  max-width: 800px;
+  overflow: hidden;
   font-size: large;
+  padding-inline: 20px;
+  height: 36px;
+  line-height: 36px;
+  white-space: nowrap;
 }
+
+.textarea-text-pos{
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
 .textarea-text{
   resize: none;
-  width: 800px;
-  max-width: 100%;
+  width: calc(100% - 40px);
+  max-width: 800px;
   height: 600px;
   overflow-x: hidden;
   overflow-y: scroll;
   font-size: large;
+  padding-inline: 20px;
+  padding-block: 10px;
 }
+
 .post-type-radio-pos{
   padding-block: 5px;
   margin-bottom: 10px;
+  overflow: hidden;
 }
 
 .post-type-radio{
@@ -198,6 +259,46 @@ h3{
   font-size: large;
 }
 
+.thumb-radios-pos{
+  margin: auto;
+  width: 100%;
+  max-width: 840px;
+}
+
+.thumb-radios{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.thumb-radio{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+}
+
+.thumb-pos{
+  width: 128px;
+  height: 128px;
+  margin-bottom: 5px;
+  background-color: #007fff;
+}
+
+.thumb{
+  width: 100%;
+  height: auto;
+}
+
+.submit-button{
+  width: 100px;
+  height: 40px;
+  margin-block: 20px;
+}
+/* #endregion */ 
+
+/* #region works */
 .illust-buttons-pos{
   padding-inline: 5%;
   margin: auto;
@@ -254,7 +355,9 @@ h3{
     height: auto;
   }
 }
+/* #endregion */ 
 
+/* #region links */
 .links-pos{
   margin: 50px;
   margin-top: 70px;
@@ -272,7 +375,9 @@ h3{
   list-style: none;
   margin-left:40px;
 }
+/* #endregion */ 
 
+/* #region game */
 .game-pos{
   margin-inline: auto;
   height: 600px;
@@ -285,6 +390,7 @@ h3{
   margin-top: 30px;
   text-align: center;
 }
+/* #endregion */ 
 
 /* #endregion */ 
 

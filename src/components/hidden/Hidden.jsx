@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Hidden = () => (
-    <div>Hidden</div>
+    <h2>隠しページ</h2>
   )
 
 export default Hidden

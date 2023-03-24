@@ -1,9 +1,10 @@
 import { atom } from "recoil"
 import { recoilPersist } from 'recoil-persist'
 
+
 const { persistAtom } = recoilPersist({
-  key: 'recoil-persist',
-  storage: sessionStorage,
+  key: 'recoil-persist-local',
+  storage: localStorage,
 })
 
 export const memoAtom = atom({
@@ -21,13 +22,9 @@ export const draftAtom = atom({
   key: "MemoDraft",
   default: {
     thumbimg: "099.png",
-    title: "タイトル",
-    text: "ここに本文を入力",
+    title: "",
+    text: "",
   },
   effects_UNSTABLE: [persistAtom],
 });
 
-export const subAtom = atom({
-  key: "sub",
-  default: "no-contents",
-});

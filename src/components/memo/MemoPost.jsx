@@ -1,30 +1,34 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useRecoilState } from "recoil"
+import ThumbsList from "./MemoThumbsList"
 import { memoAtom, draftAtom } from "../../Atom"
 
 const MemoPost = () => {
   const navigate = useNavigate();
 
-  const [draft,setDraft] = useRecoilState(draftAtom);
-  const [memos,setMemos] = useRecoilState(memoAtom);
+  const [draft, setDraft] = useRecoilState(draftAtom);
+  const [memos, setMemos] = useRecoilState(memoAtom);
 
   const Post = () =>{
-    if(draft.title===""){ setDraft({...draft,title:"No Title"}); }
     let id = 1;
     if(memos.length>0){
       id = memos.slice(-1)[0].id+1;
     }
     const memo={
-      "id":id,
-      "thumbimg": "099.png",
-      "title":draft.title,
-      "text":draft.text
+      "id": id,
+      "thumbimg": draft.thumbimg,
+      "title": draft.title,
+      "text": draft.text.replace(/\n/g, '<br>')
     }
+    if(draft.title === ""){
+      memo.title="No Title";
+    }
+    
     setMemos([...memos,memo]);
     setDraft({
       thumbimg: "099.png",
-      title: "タイトル",
-      text: "ここに本文を入力",
+      title: "",
+      text: "",
     })
 
     navigate("../");
@@ -34,10 +38,11 @@ const MemoPost = () => {
     <>
       <h2>新規投稿</h2>
       <h3>タイトル</h3>
-      <div>
+      <div className='textarea-title-pos'>
         <textarea type="text" className='textarea-title'
           value={draft.title}
-          onChange={(event) => setDraft({...draft,title:event.target.value})}/>
+          onChange={(event) => setDraft({...draft,title:event.target.value})}
+          placeholder="タイトル"/>
       </div>
       <h3>形式</h3>
       <div className='post-type-radio-pos'>
@@ -45,18 +50,34 @@ const MemoPost = () => {
           <input type="radio" name="post_type" id="text" value="text" defaultChecked />
           &nbsp;Text
         </label>
-        <label htmlFor="text" className='post-type-radio'>
-          <input type="radio" name="post_type" id="text" value="text" />
+        <label htmlFor="markdown" className='post-type-radio'>
+          <input type="radio" name="post_type" id="markdown" value="markdown" />
           &nbsp;MarkDown
         </label>
       </div>
       <h3>本文</h3>
-      <div>
+      <div className='textarea-text-pos'>
         <textarea type="text" className='textarea-text'
           value={draft.text}
-          onChange={(event) => setDraft({...draft,text:event.target.value})}/>
+          onChange={(event) => setDraft({...draft,text:event.target.value})}
+          placeholder="ここに本文を入力"/>
       </div>
-      <div><button type="button" onClick={ () => Post() }>投稿する</button></div>
+      <h3>サムネイル選択</h3>
+      <div className="thumb-radios-pos">
+        <div className="thumb-radios">
+          {ThumbsList.map((value)=>(
+            <label htmlFor={`thumb-${value}`} className='thumb-radio' key={value}>
+              <span className="thumb-pos">
+                <img className="thumb" alt = {`pic${value}`} src = {`../../../thumb/${value}.png`} />
+              </span>
+              <input type="radio" name="thumb_select" id={`thumb-${value}`}
+                value={`${value}.png`} onChange={(event)=>{setDraft({...draft, thumbimg:event.target.value})}}/>
+            </label>
+          ))}
+        </div>
+      </div>
+
+      <div><button type="button" className="submit-button" onClick={ () => Post() }>投稿する</button></div>
       <Link to="../" >一覧に戻る</Link>
     </>
   )
