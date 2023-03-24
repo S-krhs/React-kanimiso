@@ -66,9 +66,10 @@ todo - ページ/コンポーネント一覧の作成
 
 ## ToDo
 - アクセスカウンタをちゃんと動かす。
+- MarkDownによる投稿の実装と状態管理。
 - 管理画面を実装しブログ投稿を行えるようにする。
-- レスポンシブなUI設計を行う。
 - もっとモダンなUIへの切り替えが出来るようにする（+Tailwindを使ってみる）。
+- REST APIの実装
 - RDSはプライベートサブネットに置き直したいけどEC2を踏み台にするのは面倒くさいな。
 
 ## おまけ
@@ -175,7 +176,9 @@ todo - まとめる / 一番苦労したのでていねいに
 ### webGLアプリのメモリリーク
 todo - メモリリークの経緯と調べたこと<br>
 結局`useEffect()`の[副作用フック](https://takamints.hatenablog.jp/entry/cleanup-an-async-use-effect-hook-of-react-function-componet)を使って[明示的にリロードを挟む](https://morioh.com/p/f228a0a3f3a6)という力技で誤魔化したが、chatGPTくんには本質的な解決になってないと怒られた。Unityアプリ側でメモリ解放のためのフックを作るとかすればいいのだろうか。何かいい方法があれば教えてください。<br>
-追記：loader.jsを検索していたら
+
+#### 追記(2023/03/20)
+~~loader.jsを検索していたら~~ <-[別の方法](#追記20230324)で解決しました。
 ```
 e.destroyInstance = function () {
 return a ? a.close().then(function () {
@@ -197,10 +200,47 @@ return e.destroyInstance().then(function () {
 })
 }
 ```
-というコードを発見したのでclearCacheを実行したらいいのかも。今度やってみよう、乞うご期待。
+というコードを発見したのでclearCacheを実行したらいいのかも。今度やってみよう、乞うご期待。<br>
+
+#### 追記(2023/03/24)
+[`React Unity WebGL`のリファレンス](https://react-unity-webgl.dev/docs/api/unload)にアンロードについて記述がありました。`unityProvider`と同時に`unload`を宣言することで非同期関数として使用可能になるそうです。
+```:App.jsx
+const { unityProvider, unload } = useUnityContext({
+    loaderUrl: "build/myunityapp.loader.js",
+    dataUrl: "build/myunityapp.data",
+    frameworkUrl: "build/myunityapp.framework.js",
+    codeUrl: "build/myunityapp.wasm",
+});
+```
+これを副作用フックに入れることで解決……と思ったのですがそれは上手くいきませんでした。ということで今回は`react-router-dom`の`Link`タグの`onClick`属性に対して以下の関数をアサインしています。これでエラーが出なくなります。
+```:App.jsx
+const unityUnload = async(navigate,location,event) =>{
+    // '/games'からの遷移に限り実行する
+    if(location.pathname === "/games"){
+        event.preventDefault();
+        await unload();
+        navigate(event.target.pathname);
+    }
+}
+```
+`event.preventDefault()`で一次的に遷移をキャンセルして`unload()`を行ったのち、`react-router-dom`の`useNavigate()`を用いて改めて遷移を実装しています。`event.preventDefault()`を行わないと先に`Link`タグの遷移処理が行われてしまうため、終了先を見失った関数がグルグルしてしまってかわいそうなことになるので注意。（もしかしたらonClickは先に走ってはいるものの、awaitが意味を成さなくなることが原因かもしれない。）`Link`タグ側は次のような形。
+```:LinkMenu.jsx
+import { Link, useLocation, useNavigate } from "react-router-dom";
+const LinkMenu = ({ unityUnload }) => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    return
+        <Link
+            to="hoge"
+            onClick={(e)=>unityUnload(navigate,location,e)}>
+            ホゲのページ
+        </Link>
+}
+```
+`unityUnload()`関数はpropsとして親のApp.jsxから渡しています。気持ちとしてはGame.jsxのコンポーネント内で上手いこと解決したかったのですが、Link側の処理をする必要があったためこういった形になりました。
 
 ### chatGPTくんについて
-todo - 感想 / なんとなく「あ～これはダメなやつだな……」っていうのが分かってくる。
+todo - 感想 / 便利、割と大嘘をつく、なんとなく「あ～これはダメなやつだな……」っていうのが分かってくる。
 
 ### 2000年代風サイトデザインについて
 ここのサイトを参考にしました。<br>
