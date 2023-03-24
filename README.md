@@ -174,7 +174,7 @@ todo - まとめる / 一番苦労したのでていねいに
 
 ### webGLアプリのメモリリーク
 todo - メモリリークの経緯と調べたこと<br>
-結局`useEffect()`の[副作用フック](https://takamints.hatenablog.jp/entry/cleanup-an-async-use-effect-hook-of-react-function-componet)を使って[明示的にリロードを挟む](https://morioh.com/p/f228a0a3f3a6)という力技で誤魔化したが、chatGPTくんには本質的な解決になってないと怒られた。Unityアプリ側でメモリ解放のためのフックを作るとかすればいいのだろうか。何かいい方法があれば教えてください。<br>
+結局`useEffect()`の[クリーンアップ関数](https://takamints.hatenablog.jp/entry/cleanup-an-async-use-effect-hook-of-react-function-componet)を使って[明示的にリロードを挟む](https://morioh.com/p/f228a0a3f3a6)という力技で誤魔化したが、chatGPTくんには本質的な解決になってないと怒られた。Unityアプリ側でメモリ解放のためのフックを作るとかすればいいのだろうか。何かいい方法があれば教えてください。<br>
 
 #### 追記(2023/03/20)
 ~~loader.jsを検索していたら~~ <-[別の方法](#追記20230324)で解決しました。
@@ -211,7 +211,7 @@ const { unityProvider, unload } = useUnityContext({
     codeUrl: "build/myunityapp.wasm",
 });
 ```
-これを副作用フックに入れることで解決……と思ったのですがそれは上手くいきませんでした。ということで今回は`react-router-dom`の`Link`タグの`onClick`属性に対して以下の関数をアサインしています。これでエラーが出なくなります。
+これをクリーンアップ関数に入れることで解決……と思ったのですがそれは上手くいきませんでした。ということで今回は`react-router-dom`の`Link`タグの`onClick`属性に対して以下の関数をアサインしています。これでエラーが出なくなります。
 ```:App.jsx
 const unityUnload = async(navigate,location,event) =>{
     // '/games'からの遷移に限り実行する
