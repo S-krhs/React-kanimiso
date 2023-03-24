@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SidebarMainLink, MenubarOtherPageLink } from "./MenubarData";
 import Icon from "../../assets/oguri-icon.png";
 
-const Sidebar = () => (
+const Sidebar = ({unityUnload}) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  return(
     <div className="sidebar-contents">
         <div className="sidebar-access-counter">
           <p>あなたは</p>
@@ -40,7 +43,7 @@ const Sidebar = () => (
             <div className="rows">
               {SidebarMainLink.map((value) => (
                 <li className="row" key={value.id}>
-                  <Link to={value.link}>{value.title}</Link>
+                  <Link to={value.link} onClick={(e)=>unityUnload(navigate,location,e)}>{value.title}</Link>
                 </li>
               ))}
               <li className="row">工事中...</li>
@@ -80,5 +83,6 @@ const Sidebar = () => (
         </nav>
       </div>
   );
+}
 
 export default Sidebar;

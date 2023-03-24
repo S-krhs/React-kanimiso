@@ -14,7 +14,7 @@ import MemoPost from './components/memo/MemoPost'
 import NoMemo from './components/memo/NoMemo'
 import firstEntry from './components/memo/FirstEntry'
 
- const MainRoutes = () => {
+const MainRoutes = ({unityProvider}) => {
   const [entries,setEntries] = useState([firstEntry,]);
 
   const routes = useRoutes([
@@ -27,16 +27,16 @@ import firstEntry from './components/memo/FirstEntry'
         { path: 'entry/:id', element: <Memo entries={entries} setEntries={setEntries}/> },
         { path: 'post', element: <MemoPost entries={entries} setEntries={setEntries}/> },
         { path: '*', element: <NoMemo /> },
-    ]
+      ]
     },
     { path: '/links', element: <Links /> },
     { path: '/works', element: <Works /> },
-    { path: '/games', element: <Games /> },
+    { path: '/games', element: <Games unityProvider={unityProvider}/> },
     { path: '/hidden', element: <Hidden /> },
     { path: '/admin-dummy', element: <AdminDummy /> }
   ]);
 
   return(routes)
- }
+}
 
- export default MainRoutes;
+export default MainRoutes;
