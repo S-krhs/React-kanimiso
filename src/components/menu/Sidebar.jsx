@@ -43,7 +43,8 @@ const Sidebar = ({unityUnload}) => {
             <div className="rows">
               {SidebarMainLink.map((value) => (
                 <li className="row" key={value.id}>
-                  <Link to={value.link} onClick={(e)=>unityUnload(navigate,location,e)}>{value.title}</Link>
+                  <Link to={value.link}
+                  onClick={(e)=>unityUnload(navigate,location,e)}>{value.title}</Link>
                 </li>
               ))}
               <li className="row">工事中...</li>

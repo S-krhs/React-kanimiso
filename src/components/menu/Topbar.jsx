@@ -1,15 +1,19 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { TopbarMainLink, MenubarOtherPageLink } from "./MenubarData";
 
-const Topbar = () => (
+const Topbar = ({unityUnload}) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  return(
     <div className="topbar-contents">
         <nav>
           <ul className="topbar-link">
             <div className="cols">
               {TopbarMainLink.map((value) => (
                 <li className="col" key={value.id}>
-                  <Link to={value.link}>{value.title}</Link>
+                  <Link to={value.link} 
+                  onClick={(e)=>unityUnload(navigate,location,e)}>{value.title}</Link>
                 </li>
               ))}
             </div>
@@ -32,5 +36,6 @@ const Topbar = () => (
         </nav>
       </div>
   );
+}
 
 export default Topbar
