@@ -3,6 +3,7 @@ import './App.css'
 import { BrowserRouter as Router } from "react-router-dom"
 import { useMediaQuery } from "react-responsive"
 import { useUnityContext } from "react-unity-webgl";
+import { RecoilRoot } from 'recoil';
 import Sidebar from './components/menu/Sidebar'
 import MainRoutes from './MainRoutes'
 import Marquee from './components/marquee/Marquee'
@@ -31,10 +32,12 @@ const App = () => {
   return(
     <div className="App">
       <Router>
-        <div className='header'><Marquee /></div>
+          <div className='header'><Marquee /></div>
           {!isMobile && <div className='sidebar'><Sidebar unityUnload={unityUnload} /></div>}
           {isMobile && <div className='topbar'><Topbar unityUnload={unityUnload}/></div>}
-        <div className='main'><MainRoutes unityProvider={unityProvider} /></div>
+        <RecoilRoot>  
+          <div className='main'><MainRoutes unityProvider={unityProvider} /></div>
+        </RecoilRoot>
       </Router>
     </div>
   )

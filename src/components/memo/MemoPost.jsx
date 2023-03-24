@@ -1,40 +1,60 @@
-import React, { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
+import { useRecoilState } from "recoil"
+import { memoAtom, draftAtom } from "../../Atom"
 
-const MemoPost = ({entries,setEntries}) => {
-  const [title,setTitle] = useState("No Title");
-  const [text,setText] = useState("");
+const MemoPost = () => {
   const navigate = useNavigate();
 
+  const [draft,setDraft] = useRecoilState(draftAtom);
+  const [memos,setMemos] = useRecoilState(memoAtom);
+
   const Post = () =>{
-    if(title===""){ setTitle("No Title"); }
+    if(draft.title===""){ setDraft({...draft,title:"No Title"}); }
     let id = 1;
-    if(entries.length>0){
-      id = entries.slice(-1)[0].id+1;
+    if(memos.length>0){
+      id = memos.slice(-1)[0].id+1;
     }
-    const entry={
+    const memo={
       "id":id,
-      "title":title,
-      "text":text
+      "thumbimg": "099.png",
+      "title":draft.title,
+      "text":draft.text
     }
-    setEntries([...entries,entry]);
+    setMemos([...memos,memo]);
+    setDraft({
+      thumbimg: "099.png",
+      title: "タイトル",
+      text: "ここに本文を入力",
+    })
+
     navigate("../");
   }
 
   return (
     <>
       <h2>新規投稿</h2>
-      <div>タイトル</div>
+      <h3>タイトル</h3>
       <div>
-        <input type="text" size="50"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}/>
+        <textarea type="text" className='textarea-title'
+          value={draft.title}
+          onChange={(event) => setDraft({...draft,title:event.target.value})}/>
       </div>
-      <div>本文</div>
+      <h3>形式</h3>
+      <div className='post-type-radio-pos'>
+        <label htmlFor="text" className='post-type-radio'>
+          <input type="radio" name="post_type" id="text" value="text" defaultChecked />
+          &nbsp;Text
+        </label>
+        <label htmlFor="text" className='post-type-radio'>
+          <input type="radio" name="post_type" id="text" value="text" />
+          &nbsp;MarkDown
+        </label>
+      </div>
+      <h3>本文</h3>
       <div>
-        <input type="text" size="50"
-          value={text}
-          onChange={(event) => setText(event.target.value)}/>
+        <textarea type="text" className='textarea-text'
+          value={draft.text}
+          onChange={(event) => setDraft({...draft,text:event.target.value})}/>
       </div>
       <div><button type="button" onClick={ () => Post() }>投稿する</button></div>
       <Link to="../" >一覧に戻る</Link>
