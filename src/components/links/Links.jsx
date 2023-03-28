@@ -7,7 +7,9 @@ const Links = () => (
         <Helmet>
           <title>かにみそナックルカーブ - リンク集</title>
         </Helmet>
-        <h1 className='main-title-pos'>Links</h1>
+        <div className='main-title-pos'>
+          <h1>リンク集</h1>
+        </div>
         <ul className='links-pos'>
           {
             LinksData.map((link)=>(
@@ -21,7 +23,9 @@ const Links = () => (
             ))
           }
         </ul>
-        <p>～ 当サイトはリンクフリーです ～</p>
+        <div className='main-text-pos'>
+          <p>～ 当サイトはリンクフリーです ～</p>
+        </div>
       </HelmetProvider>
   )
 

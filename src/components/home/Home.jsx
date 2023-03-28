@@ -6,8 +6,12 @@ const Home = () => (
         <Helmet>
           <title>かにみそナックルカーブ</title>
         </Helmet>
-        <h1 className='main-title-pos'>Home</h1>
-        <h2>鋭意作成中</h2>
+        <div className='main-title-pos'>
+          <h1>Home</h1>
+        </div>
+        <div className='main-text-pos'>
+          <h2>鋭意作成中</h2>
+        </div>
       </HelmetProvider>
   )
 

@@ -14,6 +14,7 @@ export const memoAtom = atom({
     thumbimg: "099.png",
     title: "First Entry",
     text: "最初のエントリーだよ。This is a first entry.",
+    texttype:"text",
   }],
   effects_UNSTABLE: [persistAtom],
 });
@@ -24,6 +25,7 @@ export const draftAtom = atom({
     thumbimg: "099.png",
     title: "",
     text: "",
+    texttype:"text",
   },
   effects_UNSTABLE: [persistAtom],
 });

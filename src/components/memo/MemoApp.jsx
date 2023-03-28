@@ -9,9 +9,12 @@ const MemoApp = () => (
           <title>かにみそナックルカーブ - メモ帳</title>
         </Helmet>
         
-        <h1 className='main-title-pos'>メモ帳</h1>
-        <p><span>日記とやってることはほぼ同じのブログもどき。</span>
-        <span>エントリを集めて君だけの最強の日記を作ろう！</span></p>
+        <div className='main-title-pos'>
+          <h1>メモ帳</h1>
+        </div>
+        <div className='main-text-pos'>
+          <p>エントリを集めて君だけの最強の日記を作ろう！</p>
+        </div>
         <div className='entry-pos'><Outlet /></div>
       </HelmetProvider>
   )

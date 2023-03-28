@@ -18,10 +18,14 @@ const MemoPost = () => {
       "id": id,
       "thumbimg": draft.thumbimg,
       "title": draft.title,
-      "text": draft.text.replace(/\n/g, '<br>')
+      "text": draft.text,
+      "texttype": draft.texttype,
+    }
+    if(draft.texttype === "text"){
+      memo.text = memo.text.replace(/\n/g, '<br>');
     }
     if(draft.title === ""){
-      memo.title="No Title";
+      memo.title = "No Title";
     }
     
     setMemos([...memos,memo]);
@@ -29,6 +33,7 @@ const MemoPost = () => {
       thumbimg: "099.png",
       title: "",
       text: "",
+      texttype:"text",
     })
 
     navigate("../");
@@ -36,33 +41,45 @@ const MemoPost = () => {
 
   return (
     <>
-      <h2>新規投稿</h2>
-      <h3>タイトル</h3>
+      <div className='entry-title-pos'>
+        <h2>新規投稿</h2>
+      </div>
+      <div className='entry-subtitle-pos'>
+        <h3>タイトル</h3>
+      </div>
       <div className='textarea-title-pos'>
         <textarea type="text" className='textarea-title'
           value={draft.title}
           onChange={(event) => setDraft({...draft,title:event.target.value})}
           placeholder="タイトル"/>
       </div>
-      <h3>形式</h3>
+      <div className='entry-subtitle-pos'>
+        <h3>形式</h3>
+      </div>
       <div className='post-type-radio-pos'>
         <label htmlFor="text" className='post-type-radio'>
-          <input type="radio" name="post_type" id="text" value="text" defaultChecked />
+          <input type="radio" name="post_type" id="text" value="text" defaultChecked 
+            onChange={(event)=>{setDraft({...draft, texttype:event.target.value})}}/>
           &nbsp;Text
         </label>
         <label htmlFor="markdown" className='post-type-radio'>
-          <input type="radio" name="post_type" id="markdown" value="markdown" />
+          <input type="radio" name="post_type" id="markdown" value="markdown" 
+            onChange={(event)=>{setDraft({...draft, texttype:event.target.value})}}/>
           &nbsp;MarkDown
         </label>
       </div>
-      <h3>本文</h3>
+      <div className='entry-subtitle-pos'>
+        <h3>本文</h3>
+      </div>
       <div className='textarea-text-pos'>
         <textarea type="text" className='textarea-text'
           value={draft.text}
           onChange={(event) => setDraft({...draft,text:event.target.value})}
           placeholder="ここに本文を入力"/>
       </div>
-      <h3>サムネイル選択</h3>
+      <div className='entry-subtitle-pos'>
+        <h3>サムネイル選択</h3>
+      </div>
       <div className="thumb-radios-pos">
         <div className="thumb-radios">
           {ThumbsList.map((value)=>(

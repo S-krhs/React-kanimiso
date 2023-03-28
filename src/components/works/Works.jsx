@@ -34,7 +34,9 @@ const Works = () => {
         <Helmet>
           <title>かにみそナックルカーブ - イラスト</title>
         </Helmet>
-        <h1 className='main-title-pos'>Works</h1>
+        <div className='main-title-pos'>
+          <h1>Works</h1>
+        </div>
         <div className='illust-buttons-pos'>
           {illustsData.map((data)=>(
             <span key={data.id} className='like-a' onClick={()=>setIllustsPath(data.path)}>■</span>

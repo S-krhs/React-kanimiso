@@ -7,8 +7,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import { memoAtom } from "../../Atom"
-
-
+import 'github-markdown-css/github-markdown.css'
 
 const Memo = () => {
   const navigate = useNavigate();
@@ -27,11 +26,14 @@ const Memo = () => {
 
   return (
     <>
-      <h2>{entry.title}</h2>
-      <div className='entry-text'>
+      <div className='entry-title-pos'>
+        <h2>{entry.title}</h2>
+      </div>
+      <div className='entry-text-pos'>
         <ReactMarkdown
           rehypePlugins={[rehypeRaw, rehypeSanitize]}
           remarkPlugins={[remarkGfm]}
+          className='markdown-body back-ground-transparent'
         >
           {entry.text}
         </ReactMarkdown>

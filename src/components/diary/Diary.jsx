@@ -6,8 +6,12 @@ const Diary = () => (
         <Helmet>
           <title>かにみそナックルカーブ - 日記</title>
         </Helmet>
-        <h1 className='main-title-pos'>Diary</h1>
-        <h2>準備中</h2>
+        <div className='main-title-pos'>
+          <h1>Diary</h1>
+        </div>
+        <div className='main-text-pos'>
+          <h2>準備中</h2>
+        </div>
       </HelmetProvider>
   )
 

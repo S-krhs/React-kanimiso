@@ -36,19 +36,6 @@
 
 
 /* #region メイン関連 */
-
-.main h2{
-  text-align: center;
-}
-
-.main p{
-  text-align: center;
-}
-
-.main span {
-  display: inline-block;
-}
-
 .main{
   grid-area: main;
   background-color:rgb(218, 218, 218);
@@ -60,45 +47,46 @@
 
 .main-title-pos{
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.main-text-pos{
+  text-align: center;
 }
 
 /* #region memo */
 .entry-pos{
   text-align: center;
   line-height: 25px;
-  padding-block: 30px;
+  padding-block: 15px;
   margin-block: 20px;
   /* background-color: #0000EE; */
 }
-.entry-pos h2{
+.entry-title-pos {
   padding-block: 20px;
   margin-bottom: 5px;
 }
 
-.entry-pos h3{
-  padding-block: 10px;
+.entry-subtitle-pos h3{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.entry-text{
-  resize: none;
+.entry-text-pos{
   width: calc(100% - 40px);
   max-width: 750px;
   min-height: 200px;
-  font-size: large;
   padding-inline: 20px;
   padding-block: 10px;
   margin-block: 40px;
   margin-inline: auto;
   text-align: left;
 }
-.entry-text p{
-  text-align: left;
-}
-.entry-text h2{
-  text-align: left;
-}
 
+.back-ground-transparent{
+  --color-canvas-default: rgba(0,0,0,0) !important;
+  --color-border-muted: gray !important;
+}
 
 .delete-button{
   width: 160px;
@@ -367,6 +355,10 @@
   margin-bottom: 10px;
 }
 
+.link span{
+  display: inline-block;
+}
+
 .link-name{
   list-style: inside;
 }
@@ -384,12 +376,9 @@
   background: #000;
   /* overflow: hidden; */
   text-align: center;
+  margin-bottom: 30px;
 }
 
-.game-description{
-  margin-top: 30px;
-  text-align: center;
-}
 /* #endregion */ 
 
 /* #endregion */ 
