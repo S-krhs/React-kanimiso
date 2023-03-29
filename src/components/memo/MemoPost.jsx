@@ -44,7 +44,7 @@ const MemoPost = () => {
       <div className='entry-title-pos'>
         <h2>新規投稿</h2>
       </div>
-      <div className='entry-subtitle-pos'>
+      <div className='entry-params-title-pos'>
         <h3>タイトル</h3>
       </div>
       <div className='textarea-title-pos'>
@@ -53,7 +53,7 @@ const MemoPost = () => {
           onChange={(event) => setDraft({...draft,title:event.target.value})}
           placeholder="タイトル"/>
       </div>
-      <div className='entry-subtitle-pos'>
+      <div className='entry-params-title-pos'>
         <h3>形式</h3>
       </div>
       <div className='post-type-radio-pos'>
@@ -68,7 +68,7 @@ const MemoPost = () => {
           &nbsp;MarkDown
         </label>
       </div>
-      <div className='entry-subtitle-pos'>
+      <div className='entry-params-title-pos'>
         <h3>本文</h3>
       </div>
       <div className='textarea-text-pos'>

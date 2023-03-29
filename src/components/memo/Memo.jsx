@@ -27,13 +27,13 @@ const Memo = () => {
   return (
     <>
       <div className='entry-title-pos'>
-        <h2>{entry.title}</h2>
+        <h1>{entry.title}</h1>
       </div>
       <div className='entry-text-pos'>
         <ReactMarkdown
           rehypePlugins={[rehypeRaw, rehypeSanitize]}
           remarkPlugins={[remarkGfm]}
-          className='markdown-body back-ground-transparent'
+          className='markdown-body my-markdown-body'
         >
           {entry.text}
         </ReactMarkdown>
